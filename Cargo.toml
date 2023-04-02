@@ -6,7 +6,5 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-eframe = "0.21.3"
-egui = "0.21.0"
-egui_extras = { version = "0.21.0", features = ["image"] }
-image = { version = "0.24", default-features = false, features = ["png"] }
+relm4 = { version = "0.5.1", features = ["libadwaita"] }
+relm4-components = "0.5.1"
