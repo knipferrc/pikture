@@ -6,5 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-relm4 = { version = "0.5.1", features = ["libadwaita"] }
-relm4-components = "0.5.1"
+slint = "1.0.0"
+
+[build-dependencies]
+slint-build = "1.0"
