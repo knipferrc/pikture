@@ -1,33 +1,34 @@
-use gtk::prelude::{BoxExt, ButtonExt, GtkWindowExt, OrientableExt};
+use std::path::Path;
+
+use gtk::prelude::{GtkWindowExt, OrientableExt};
 use relm4::{
     adw,
     gtk::{self, traits::WidgetExt},
     ComponentParts, ComponentSender, RelmApp, RelmWidgetExt, SimpleComponent,
 };
 
-struct AppModel {
-    current_path: String,
+struct App {
+    image_path: String,
 }
 
 #[derive(Debug)]
 enum AppMsg {
-    ChangeCurrentPath,
+    ChangeImagePath,
 }
 
 #[relm4::component]
-impl SimpleComponent for AppModel {
+impl SimpleComponent for App {
     type Input = AppMsg;
-
     type Output = ();
-    type Init = u8;
+    type Init = ();
 
     fn init(
-        _current_path: Self::Init,
+        _: Self::Init,
         root: &Self::Root,
         sender: ComponentSender<Self>,
     ) -> ComponentParts<Self> {
-        let model = AppModel {
-            current_path: String::from("."),
+        let model = App {
+            image_path: String::from("new"),
         };
 
         let widgets = view_output!();
@@ -35,56 +36,27 @@ impl SimpleComponent for AppModel {
         ComponentParts { model, widgets }
     }
 
-    fn update(&mut self, msg: Self::Input, _sender: ComponentSender<Self>) {
+    fn update(&mut self, msg: AppMsg, _sender: ComponentSender<Self>) {
         match msg {
-            AppMsg::ChangeCurrentPath => {
-                self.current_path = "Downloads".to_string();
-            }
+            AppMsg::ChangeImagePath => self.image_path = String::from("new"),
         }
     }
 
     view! {
         adw::Window {
-            set_title: Some("Refile"),
+            set_title: Some("Pikture"),
             set_default_size: (700, 400),
 
             gtk::Box {
                 set_orientation: gtk::Orientation::Vertical,
+
                 adw::HeaderBar {},
 
                 gtk::Box {
-                    set_orientation: gtk::Orientation::Horizontal,
-                    set_spacing: 5,
-                    set_margin_all: 5,
-
-                    gtk::Box {
-                        set_orientation: gtk::Orientation::Vertical,
-                        set_spacing: 5,
+                    gtk::Image {
                         set_vexpand: true,
-
-                        gtk::Button {
-                            set_label: "Home",
-                            connect_clicked[sender] => move |_| {
-                                sender.input(AppMsg::ChangeCurrentPath);
-                            }
-                        },
-                        gtk::Button {
-                            set_label: "Downloads",
-                            connect_clicked[sender] => move |_| {
-                                sender.input(AppMsg::ChangeCurrentPath);
-                            }
-                        },
-                    },
-
-                    gtk::Separator {},
-
-                    gtk::Box {
-                        set_valign: gtk::Align::Start,
-                        gtk::Label {
-                            #[watch]
-                            set_label: &format!("Current Path: {}", model.current_path),
-                            set_margin_all: 5,
-                        }
+                        set_hexpand: true,
+                        set_from_file: Some("image.png"),
                     }
                 }
             }
@@ -94,5 +66,5 @@ impl SimpleComponent for AppModel {
 
 fn main() {
     let app = RelmApp::new("org.mistakenelf.pikture");
-    app.run::<AppModel>(0);
+    app.run::<App>(());
 }

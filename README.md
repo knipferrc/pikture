@@ -1,2 +1,3 @@
-# refile
-A file manager to refile your files
+# Pikture
+
+A simple image viewer
