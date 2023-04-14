@@ -1,4 +1,16 @@
-conf = configuration_data()
-conf.set('app_id', app_id)
-conf.set('version', version)
-conf.set('bindir', get_option('prefix') / get_option('bindir'))
+i18n.merge_file(
+    input: 'pikture.desktop.in',
+    output: meson.project_name() + '.desktop',
+    po_dir: meson.source_root() / 'po',
+    type: 'desktop',
+    install: true,
+    install_dir: get_option('datadir') / 'applications'
+)
+
+i18n.merge_file(
+    input: 'pikture.metainfo.xml.in',
+    output: meson.project_name() + '.metainfo.xml',
+    po_dir: meson.source_root() / 'po',
+    install: true,
+    install_dir: get_option('datadir') / 'metainfo'
+)
