@@ -35,7 +35,7 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
 
 	private async void open_button_clicked () {
 		var dialog = new FileDialog ();
-		dialog.set_title ("Select a file");
+		dialog.set_title (_("Select a file"));
 
 		var filter = new FileFilter ();
 		filter.add_mime_type ("image/*");
@@ -48,13 +48,14 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
 				this.current_image.set_filename (file.get_path ());
 			}
 		} catch (Error e) {
+			dialog.dispose ();
 		}
 	}
 
 	private Adw.HeaderBar construct_header () {
 		var header = new Adw.HeaderBar ();
 		var open_button = new Button ();
-		open_button.label = "Open";
+		open_button.label = _("Open");
 
 		open_button.clicked.connect (this.open_button_clicked);
 

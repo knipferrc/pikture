@@ -1,0 +1,4 @@
+src/Application.vala
+src/MainWindow.vala
+data/pikture.desktop.in
+data/pikture.metainfo.xml.in

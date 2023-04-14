@@ -3,10 +3,3 @@ sources = files(
   'Application.vala',
   'MainWindow.vala',
 )
-
-executable(
-  'pikture',
-  sources,
-  dependencies: dependencies,
-  install: true
-)

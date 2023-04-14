@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.github.mistakenelf.pikture</id>
+  <name>Pikture</name>
+  <summary>A simple image viewer</summary>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <description>
+    <p>
+      A simple image viewer
+    </p>
+  </description>
+
+  <launchable type="desktop-id">com.github.mistakenelf.pikture.desktop</launchable>
+</component>
