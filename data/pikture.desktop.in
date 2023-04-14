@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Pikture
+Comment=A simple image viewer
+Categories=Development;Images;
+Icon=com.github.mistakenelf.pikture
+Exec=com.github.mistakenelf.pikture
+Terminal=false

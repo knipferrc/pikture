@@ -1,22 +1,31 @@
-public class Pikture.MainWindow : Adw.ApplicationWindow {
-	private string current_image_uri;
-	private Gtk.Image current_image;
+using Gtk;
 
-	public MainWindow (Gtk.Application app) {
+public class Pikture.MainWindow : Adw.ApplicationWindow {
+	private Picture current_image;
+
+	construct {
+		this.build_ui ();
+	}
+
+	public MainWindow (Adw.Application app) {
 		Object (
 		        application: app
 		);
 	}
 
-	construct {
-		this.set_default_size (400, 300);
+	public void open (GLib.File file) {
+		this.current_image.set_filename (file.get_path ());
+	}
 
-		var layout_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+	private void build_ui () {
+		this.set_default_size (700, 500);
 
+		var layout_box = new Box (Orientation.VERTICAL, 0);
 		var header = this.construct_header ();
-		this.current_image = new Gtk.Image ();
-		this.current_image.vexpand = true;
-		this.current_image.hexpand = true;
+
+		this.current_image = new Picture ();
+		this.current_image.set_margin_bottom (10);
+		this.current_image.set_margin_top (10);
 
 		layout_box.append (header);
 		layout_box.append (this.current_image);
@@ -25,10 +34,10 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
 	}
 
 	private async void open_button_clicked () {
-		var dialog = new Gtk.FileDialog ();
+		var dialog = new FileDialog ();
 		dialog.set_title ("Select a file");
 
-		var filter = new Gtk.FileFilter ();
+		var filter = new FileFilter ();
 		filter.add_mime_type ("image/*");
 		dialog.set_initial_name (name);
 		dialog.set_default_filter (filter);
@@ -36,9 +45,7 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
 			var file = yield dialog.open (this, null);
 
 			if (file != null) {
-				this.current_image_uri = file.get_uri ();
-				this.current_image_uri = this.current_image_uri.replace ("file:///", "/");
-				this.current_image.set_from_file (this.current_image_uri);
+				this.current_image.set_filename (file.get_path ());
 			}
 		} catch (Error e) {
 		}
@@ -46,7 +53,7 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
 
 	private Adw.HeaderBar construct_header () {
 		var header = new Adw.HeaderBar ();
-		var open_button = new Gtk.Button ();
+		var open_button = new Button ();
 		open_button.label = "Open";
 
 		open_button.clicked.connect (this.open_button_clicked);

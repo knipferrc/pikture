@@ -1,22 +1,23 @@
 public class Pikture.App : Adw.Application {
+	private MainWindow main_window;
+
 	public App () {
-		Object (application_id: "org.mistakenelf.pikture",
-		        flags : GLib.ApplicationFlags.FLAGS_NONE
+		Object (application_id: "com.github.mistakenelf.pikture",
+		        flags : GLib.ApplicationFlags.HANDLES_OPEN
 		);
 	}
 
 	protected override void activate () {
-		var win = this.get_active_window ();
-		if (win == null) {
-			win = new MainWindow (this);
-		}
-		win.present ();
+		this.main_window = new MainWindow (this);
+		this.main_window.present ();
 	}
 
-	protected override void open (GLib.File[] files, string hint) {}
-}
+	protected override void open (GLib.File[] files, string hint) {
+		if (this.main_window == null) {
+			this.main_window = new MainWindow (this);
+		}
 
-int main (string[] args) {
-	var app = new Pikture.App ();
-	return app.run (args);
+		this.main_window.open (files[0]);
+		this.main_window.present ();
+	}
 }

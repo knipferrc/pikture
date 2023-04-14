@@ -1,1 +1,6 @@
-/target
+/_build
+/build
+/app
+/.flatpak
+/.flatpak-builder
+/subprojects/**/
