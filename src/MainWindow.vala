@@ -23,9 +23,10 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
 		var layout_box = new Box (Orientation.VERTICAL, 0);
 		var header = this.construct_header ();
 
-		this.current_image = new Picture ();
-		this.current_image.set_margin_bottom (10);
-		this.current_image.set_margin_top (10);
+		this.current_image = new Picture () {
+			margin_bottom = 10,
+			margin_top = 10
+		};
 
 		layout_box.append (header);
 		layout_box.append (this.current_image);
@@ -54,9 +55,7 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
 
 	private Adw.HeaderBar construct_header () {
 		var header = new Adw.HeaderBar ();
-		var open_button = new Button ();
-		open_button.label = _("Open");
-
+		var open_button = new Button.with_label (_("Open"));
 		open_button.clicked.connect (this.open_button_clicked);
 
 		header.pack_start (open_button);
