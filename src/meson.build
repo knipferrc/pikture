@@ -2,5 +2,6 @@ sources = files(
   'main.vala',
   'Application.vala',
   'MainWindow.vala',
-  'header.vala'
 )
+
+subdir('widgets')

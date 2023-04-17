@@ -1,12 +1,5 @@
-#: src/MainWindow.vala:38
-msgid "Select a file"
-msgstr "Whlen Sie eine Datei aus"
-
-#: src/MainWindow.vala:57
-msgid "Open"
-msgstr "Offen"
-
-#: data/pikture.desktop.in:5 data/pikture.metainfo.xml.in:4
+#: src/MainWindow.vala:19 data/pikture.desktop.in:5
+#: data/pikture.metainfo.xml.in:4
 msgid "Pikture"
 msgstr "Pikture"
 
@@ -14,3 +7,9 @@ msgstr "Pikture"
 #: data/pikture.metainfo.xml.in:9
 msgid "A simple image viewer"
 msgstr "Ein einfacher Bildbetrachter"
+
+#~ msgid "Select a file"
+#~ msgstr "Whlen Sie eine Datei aus"
+
+#~ msgid "Open"
+#~ msgstr "Offen"

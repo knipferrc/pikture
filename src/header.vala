@@ -1,18 +1,23 @@
 public class Pikture.Header : Adw.Bin {
 	private Adw.ApplicationWindow window;
-	private Gtk.Picture current_image;
+
+	public signal void update_current_image (string updated_image);
 
 	construct {
-		var header = new Adw.HeaderBar ();
-		var open_button = new Gtk.Button.with_label (_("Open"));
-		// open_button.clicked.connect (this.open_button_clicked);
-		header.pack_start (open_button);
-
-		this.set_child (header);
+		this.set_child (this.build_ui ());
 	}
 
 	public Header (Adw.ApplicationWindow window) {
 		this.window = window;
+	}
+
+	private Adw.HeaderBar build_ui () {
+		var header = new Adw.HeaderBar ();
+		var open_button = new Gtk.Button.with_label (_("Open"));
+		open_button.clicked.connect (this.open_button_clicked);
+		header.pack_start (open_button);
+
+		return header;
 	}
 
 	private async void open_button_clicked () {
@@ -27,7 +32,7 @@ public class Pikture.Header : Adw.Bin {
 			var file = yield dialog.open (this.window, null);
 
 			if (file != null) {
-				this.current_image.set_filename (file.get_path ());
+				this.update_current_image (file.get_path ());
 			}
 		} catch (Error e) {
 			dialog.dispose ();

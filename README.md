@@ -4,13 +4,14 @@ A simple image viewer
 
 # Local Development
 
-## Running Locally
+## Building
 
-- `meson build`
-- `cd build`
-- `ninja`
-- `./pikture`
+```sh
+meson build --prefix=/usr
+cd build
+ninja
+```
 
 ## Updating translations
 
-- `ninja com.github.mistakenelf.pikture-update-po`
+`ninja com.github.mistakenelf.pikture-update-po`

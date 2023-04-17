@@ -1,40 +1,16 @@
-# taken from gitg
+# EditorConfig <https://EditorConfig.org>
 root = true
 
+# elementary defaults
 [*]
 charset = utf-8
 end_of_line = lf
-trim_trailing_whitespace = true
-insert_final_newline = true
-
-[*.vala]
-indent_size = 4
-indent_style = tab
-insert_final_newline = true
-max_line_length = 100
-
-[*.{c,h}]
-indent_size = 2
+indent_size = tab
 indent_style = space
 insert_final_newline = true
-max_line_length = 100
+max_line_length = 80
+tab_width = 4
 
-[*.css]
-indent_size = 2
-indent_style = space
-
-[*.{ui,xml,xml.in}]
-indent_size = 2
-indent_style = space
-
-[*.py]
-indent_size = 4
-indent_style = space
-
-[*.json]
-indent_style = space
-indent_size = 4
-
-[meson.build]
-indent_size = 2
-indent_style = space
+# Markup files
+[{*.html,*.xml,*.xml.in,*.yml}]
+tab_width = 2
