@@ -1,3 +1,3 @@
 int main (string[] args) {
-	return new Pikture.App ().run ();
+    return new Pikture.App ().run (args);
 }

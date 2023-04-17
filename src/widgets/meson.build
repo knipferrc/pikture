@@ -1,3 +1,4 @@
 sources += files(
-  'Header.vala'
+  'Header.vala',
+  'Viewer.vala'
 )
