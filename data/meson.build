@@ -1,3 +1,8 @@
+conf = configuration_data()
+conf.set('app_id', app_id)
+conf.set('version', version)
+conf.set('bindir', get_option('prefix') / get_option('bindir'))
+
 i18n.merge_file(
     input: 'pikture.desktop.in',
     output: meson.project_name() + '.desktop',
@@ -15,7 +20,6 @@ i18n.merge_file(
     install_dir: get_option('datadir') / 'metainfo'
 )
 
-# Install our icons in all the required sizes
 icon_sizes = ['16', '24', '32', '48', '64', '128']
 
 foreach i : icon_sizes
