@@ -32,11 +32,30 @@ public class Pikture.App : Adw.Application {
     }
 
     private void preferences () {
-        var win = new Adw.PreferencesWindow ();
-        win.destroy_with_parent = true;
-        win.transient_for = active_window;
-        win.modal = true;
-        win.present ();
+        var preference_window = new Adw.PreferencesWindow () {
+            destroy_with_parent = true,
+            transient_for = active_window,
+            modal = true,
+        };
+        var preference_page = new Adw.PreferencesPage () {
+            title = "Preferences",
+        };
+        var preference_group = new Adw.PreferencesGroup () {
+            title = "General",
+        };
+        var action_row = new Adw.ActionRow () {
+            title = "Dark Mode",
+            subtitle = "Toggle dark mode on or off",
+        };
+
+        var toggle_button = new Gtk.Switch ();
+
+        action_row.add_suffix (toggle_button);
+        preference_group.add (action_row);
+        preference_page.add (preference_group);
+        preference_window.add (preference_page);
+
+        preference_window.present ();
     }
 
     private void about () {
