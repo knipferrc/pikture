@@ -1,15 +1,49 @@
-#: src/MainWindow.vala:19 data/pikture.desktop.in:5
+#: src/Application.vala:46 src/widgets/Header.vala:20
+msgid "Preferences"
+msgstr ""
+
+#: src/Application.vala:49
+msgid "General"
+msgstr ""
+
+#: src/Application.vala:52
+msgid "Dark Mode"
+msgstr ""
+
+#: src/Application.vala:53
+msgid "Toggle dark mode on or off"
+msgstr ""
+
+#: src/Application.vala:93 src/MainWindow.vala:19 data/pikture.desktop.in:5
 #: data/pikture.metainfo.xml.in:4
 msgid "Pikture"
 msgstr "Pikture"
+
+#: src/Application.vala:99
+msgid "translator_credits"
+msgstr ""
+
+#: src/widgets/Header.vala:18
+msgid "Quit"
+msgstr ""
+
+#: src/widgets/Header.vala:19
+msgid "About"
+msgstr ""
+
+#: src/widgets/Header.vala:27
+msgid "Open"
+msgstr "Offen"
+
+#: src/widgets/Header.vala:38
+msgid "Select a file"
+msgstr "Whlen Sie eine Datei aus"
 
 #: data/pikture.desktop.in:6 data/pikture.metainfo.xml.in:5
 #: data/pikture.metainfo.xml.in:9
 msgid "A simple image viewer"
 msgstr "Ein einfacher Bildbetrachter"
 
-#~ msgid "Select a file"
-#~ msgstr "Whlen Sie eine Datei aus"
-
-#~ msgid "Open"
-#~ msgstr "Offen"
+#, fuzzy
+#~ msgid "A simple gtk4 libadwaita image viewer"
+#~ msgstr "Ein einfacher Bildbetrachter"

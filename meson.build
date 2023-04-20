@@ -1,4 +1,4 @@
-project('pikture',
+project('com.github.mistakenelf.pikture',
   ['c', 'vala'],
   version: '0.0.1',
   license: 'MIT'
@@ -19,7 +19,7 @@ dependencies = [
   dependency('libadwaita-1'),
 ]
 
-add_project_arguments('-DGETTEXT_PACKAGE="' + app_id + '"', language: 'c')
+add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), language:'c')
 add_project_arguments(['--enable-experimental'], language: 'vala')
 
 subdir('src')

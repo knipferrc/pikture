@@ -7,9 +7,9 @@ A simple image viewer
 ## Building
 
 ```sh
-meson build --prefix=/usr
-cd build
-ninja
+meson setup build --prefix=/usr
+ninja -C build
+./build/pikture
 ```
 
 ## Updating translations

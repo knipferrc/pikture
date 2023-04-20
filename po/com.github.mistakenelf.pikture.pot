@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mistakenelf.pikture\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-17 13:50-0400\n"
+"POT-Creation-Date: 2023-04-20 15:36-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,45 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/MainWindow.vala:19 data/pikture.desktop.in:5
+#: src/Application.vala:46 src/widgets/Header.vala:20
+msgid "Preferences"
+msgstr ""
+
+#: src/Application.vala:49
+msgid "General"
+msgstr ""
+
+#: src/Application.vala:52
+msgid "Dark Mode"
+msgstr ""
+
+#: src/Application.vala:53
+msgid "Toggle dark mode on or off"
+msgstr ""
+
+#: src/Application.vala:93 src/MainWindow.vala:19 data/pikture.desktop.in:5
 #: data/pikture.metainfo.xml.in:4
 msgid "Pikture"
+msgstr ""
+
+#: src/Application.vala:99
+msgid "translator_credits"
+msgstr ""
+
+#: src/widgets/Header.vala:18
+msgid "Quit"
+msgstr ""
+
+#: src/widgets/Header.vala:19
+msgid "About"
+msgstr ""
+
+#: src/widgets/Header.vala:27
+msgid "Open"
+msgstr ""
+
+#: src/widgets/Header.vala:38
+msgid "Select a file"
 msgstr ""
 
 #: data/pikture.desktop.in:6 data/pikture.metainfo.xml.in:5

@@ -1,16 +1,9 @@
 public class Pikture.Header : Adw.Bin {
     private Adw.ApplicationWindow window;
-    private const ActionEntry[] header_action_entries = {
-        { "open-image", open_image },
-    };
 
     public signal void update_displayed_image_signal (string updated_image);
 
     construct {
-        var action_group = new SimpleActionGroup ();
-        action_group.add_action_entries (header_action_entries, this);
-        insert_action_group ("header", action_group);
-
         this.set_child (this.build_ui ());
     }
 
@@ -18,25 +11,23 @@ public class Pikture.Header : Adw.Bin {
         this.window = window;
     }
 
-    private void open_image () {
-        this.open_button_clicked.begin ();
-    }
-
     private Adw.HeaderBar build_ui () {
         var header = new Adw.HeaderBar ();
 
         var menu = new GLib.Menu ();
-        menu.append ("Quit", "app.quit");
-        menu.append ("About", "app.about");
-        menu.append ("Preferences", "app.preferences");
-        menu.append ("Open Image", "header.open-image");
+        menu.append (_("Quit"), "app.quit");
+        menu.append (_("About"), "app.about");
 
         var menu_button = new Gtk.MenuButton () {
             icon_name = "open-menu-symbolic",
             menu_model = menu,
         };
 
+        var open_image_button = new Gtk.Button.with_label (_("Open"));
+        open_image_button.clicked.connect (this.open_button_clicked);
+
         header.pack_start (menu_button);
+        header.pack_start (open_image_button);
 
         return header;
     }

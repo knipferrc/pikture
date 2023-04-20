@@ -1,9 +1,9 @@
 [Desktop Entry]
-Version=1.0
+Version=0.0.1
 Type=Application
 Name=Pikture
 Comment=A simple image viewer
-Categories=GNOME;GTK;Images;
-Icon=com.github.mistakenelf.pikture
+Categories=GNOME;GTK;Graphics;
+Icon=io.github.mistakenelf.pikture
 Exec=pikture %U
 Terminal=false
