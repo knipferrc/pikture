@@ -4,6 +4,6 @@ Type=Application
 Name=Pikture
 Comment=A simple image viewer
 Categories=GNOME;GTK;Graphics;
-Icon=io.github.mistakenelf.pikture
+Icon=com.github.mistakenelf.pikture
 Exec=pikture %U
 Terminal=false
