@@ -12,6 +12,12 @@ ninja -C build
 ./build/pikture
 ```
 
+### Build Flatpak
+
+```
+flatpak-builder build com.github.mistakenelf.pikture.yml --user --install --force-clean
+```
+
 ## Updating translations
 
 `ninja com.github.mistakenelf.pikture-update-po`
