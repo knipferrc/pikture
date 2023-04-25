@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="PiktureWindow" parent="AdwApplicationWindow">
+    <property name="default-height">700</property>
+    <property name="default-width">500</property>
+    <property name="title">Pikture</property>
+    <child>
+      <object class="GtkBox" id="layout_box">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="PiktureHeader" id="header" />
+        </child>
+        <child>
+          <object class="PiktureViewer" id="viewer" />
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
