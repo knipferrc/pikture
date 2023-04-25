@@ -1,7 +1,7 @@
 public class Pikture.App : Adw.Application {
     private MainWindow main_window;
     private const GLib.ActionEntry[] action_entries = {
-        { "quit", quit },
+        { "quit", GLib.Application.quit },
         { "about", about },
     };
 
@@ -32,25 +32,7 @@ public class Pikture.App : Adw.Application {
     }
 
     private void about () {
-        const string copyright = "Copyright \xc2\xa9 2023 Tyler Knipfer";
-        const string developers[] = {
-            "Tyler Knipfer<knipferrc@gmail.com>",
-            null
-        };
-
-        var about = new Adw.AboutWindow () {
-            application_icon = "com.github.mistakenelf.pikture",
-            application_name = _("Pikture"),
-            copyright = copyright,
-            developers = developers,
-            issue_url = "https://github.com/knipferrc/pikture/issues",
-            license_type = Gtk.License.MIT_X11,
-            transient_for = active_window,
-            translator_credits = _("translator_credits"),
-            version = "0.0.1",
-            website = "https://github.com/knipferrc/pikture",
-        };
-
+        var about = new About (active_window);
         about.present ();
     }
 }

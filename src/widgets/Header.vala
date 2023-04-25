@@ -5,14 +5,14 @@ public class Pikture.Header : Adw.Bin {
     public signal void delete_displayed_image_signal ();
 
     construct {
-        this.set_child (this.build_ui ());
+        this.build_ui ();
     }
 
     public Header (Adw.ApplicationWindow window) {
         this.window = window;
     }
 
-    private Adw.HeaderBar build_ui () {
+    private void build_ui () {
         var header = new Adw.HeaderBar ();
 
         var menu = new GLib.Menu ();
@@ -21,21 +21,31 @@ public class Pikture.Header : Adw.Bin {
 
         var menu_button = new Gtk.MenuButton () {
             icon_name = "open-menu-symbolic",
+            primary = true,
             menu_model = menu,
         };
 
-        var open_image_button = new Gtk.Button.with_label (_("Open"));
+        var builder = new Gtk.Builder ();
+        var open_image_button = new Gtk.Button ();
+        open_image_button.add_css_class ("raised");
+        open_image_button.add_css_class ("suggested-action");
+        var open_button_content = new Adw.ButtonContent () {
+            icon_name = "document-open-symbolic",
+            label = _("Open"),
+        };
+        open_image_button.add_child (builder, open_button_content, null);
+
         open_image_button.clicked.connect (this.open_button_clicked);
 
         var delete_image_button = new Gtk.Button.from_icon_name ("user-trash-symbolic");
         delete_image_button.add_css_class ("delete-button");
         delete_image_button.clicked.connect (this.delete_image_clicked);
 
-        header.pack_start (menu_button);
-        header.pack_start (open_image_button);
+        header.pack_end (menu_button);
+        header.pack_end (open_image_button);
         header.pack_end (delete_image_button);
 
-        return header;
+        this.set_child (header);
     }
 
     private async void open_button_clicked () {
