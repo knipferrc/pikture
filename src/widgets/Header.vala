@@ -2,6 +2,7 @@ public class Pikture.Header : Adw.Bin {
     private Adw.ApplicationWindow window;
 
     public signal void update_displayed_image_signal (string updated_image);
+    public signal void delete_displayed_image_signal ();
 
     construct {
         this.set_child (this.build_ui ());
@@ -26,8 +27,13 @@ public class Pikture.Header : Adw.Bin {
         var open_image_button = new Gtk.Button.with_label (_("Open"));
         open_image_button.clicked.connect (this.open_button_clicked);
 
+        var delete_image_button = new Gtk.Button.from_icon_name ("user-trash-symbolic");
+        delete_image_button.add_css_class ("delete-button");
+        delete_image_button.clicked.connect (this.delete_image_clicked);
+
         header.pack_start (menu_button);
         header.pack_start (open_image_button);
+        header.pack_end (delete_image_button);
 
         return header;
     }
@@ -63,5 +69,9 @@ public class Pikture.Header : Adw.Bin {
         });
         chooser.show ();
         #endif
+    }
+
+    private void delete_image_clicked () {
+        this.delete_displayed_image_signal ();
     }
 }

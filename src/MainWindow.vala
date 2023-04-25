@@ -27,6 +27,10 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
             this.viewer.set_displayed_image (new_image);
         });
 
+        header.delete_displayed_image_signal.connect (() => {
+            this.viewer.delete_picture ();
+        });
+
         layout_box.append (header);
         layout_box.append (viewer);
 
