@@ -2,8 +2,7 @@
 <interface>
   <template class="PiktureViewer" parent="AdwBin">
     <child>
-      <object class="GtkPicture" id="picture">
-      </object>
+      <object class="GtkPicture" id="picture" />
     </child>
   </template>
 </interface>

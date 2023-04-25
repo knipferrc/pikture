@@ -3,7 +3,7 @@
   <template class="PiktureWindow" parent="AdwApplicationWindow">
     <property name="default-height">700</property>
     <property name="default-width">500</property>
-    <property name="title">Pikture</property>
+    <property name="title" translatable="yes">Pikture</property>
     <child>
       <object class="GtkBox" id="layout_box">
         <property name="orientation">vertical</property>

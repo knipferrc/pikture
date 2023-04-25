@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <menu id="action-menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">About</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Quit</attribute>
+        <attribute name="action">app.quit</attribute>
+      </item>
+    </section>
+  </menu>
+  <template class="PiktureHeader" parent="AdwBin">
+    <child>
+      <object class="AdwHeaderBar">
+        <child type="start">
+          <object class="GtkMenuButton">
+            <property name="menu-model">action-menu</property>
+            <property name="icon-name">open-menu-symbolic</property>
+            <style>
+              <class name="circular" />
+            </style>
+          </object>
+        </child>
+        <child type="start">
+          <object class="GtkButton" id="open_image">
+            <style>
+              <class name="raised" />
+              <class name="suggested-action" />
+            </style>
+            <child>
+              <object class="AdwButtonContent">
+                <property name="icon-name">document-open-symbolic</property>
+                <property name="label" translatable="yes">Open</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="start">
+          <object class="GtkButton" id="delete_image">
+            <style>
+              <class name="destructive-action" />
+            </style>
+            <property name="icon-name">user-trash-symbolic</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
