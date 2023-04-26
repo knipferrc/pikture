@@ -15,21 +15,14 @@
   <template class="PiktureHeader" parent="AdwBin">
     <child>
       <object class="AdwHeaderBar">
-        <child type="start">
+        <child type="end">
           <object class="GtkMenuButton">
             <property name="menu-model">action-menu</property>
             <property name="icon-name">open-menu-symbolic</property>
-            <style>
-              <class name="circular" />
-            </style>
           </object>
         </child>
         <child type="start">
           <object class="GtkButton" id="open_image">
-            <style>
-              <class name="raised" />
-              <class name="suggested-action" />
-            </style>
             <child>
               <object class="AdwButtonContent">
                 <property name="icon-name">document-open-symbolic</property>
