@@ -25,7 +25,6 @@ add_project_arguments(['--enable-experimental'], language: 'vala')
 subdir('src')
 subdir('data')
 subdir('po')
-subdir('ui')
 
 executable(
   'pikture',

@@ -1,5 +1,5 @@
 public class Pikture.App : Adw.Application {
-    private Window window;
+    private MainWindow window;
     private const GLib.ActionEntry[] action_entries = {
         { "quit", GLib.Application.quit },
         { "about", about },
@@ -18,13 +18,13 @@ public class Pikture.App : Adw.Application {
     }
 
     protected override void activate () {
-        this.window = new Window (this);
+        this.window = new MainWindow (this);
         this.window.present ();
     }
 
     protected override void open (GLib.File[] files, string hint) {
         if (this.window == null) {
-            this.window = new Window (this);
+            this.window = new MainWindow (this);
         }
 
         this.window.open (files[0]);

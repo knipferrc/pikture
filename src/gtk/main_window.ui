@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk" version="4.10" />
-  <template class="PiktureWindow" parent="AdwApplicationWindow">
+  <template class="PiktureMainWindow" parent="AdwApplicationWindow">
     <property name="default-height">700</property>
     <property name="default-width">500</property>
     <property name="title" translatable="yes">Pikture</property>

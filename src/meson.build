@@ -1,7 +1,8 @@
 sources = files(
   'main.vala',
   'Application.vala',
-  'Window.vala',
+  'MainWindow.vala',
 )
 
 subdir('widgets')
+subdir('gtk')

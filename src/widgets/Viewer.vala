@@ -1,7 +1,6 @@
 [GtkTemplate (ui = "/com/github/mistakenelf/pikture/viewer.ui")]
 public class Pikture.Viewer : Adw.Bin {
-    [GtkChild]
-    private unowned Gtk.Picture picture;
+    [GtkChild] private unowned Gtk.Picture picture;
 
     public void set_displayed_image (string filename) {
         this.picture.set_filename (filename);

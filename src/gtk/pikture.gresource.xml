@@ -2,7 +2,7 @@
 <gresources>
   <gresource prefix="/com/github/mistakenelf/pikture">
     <file>viewer.ui</file>
-    <file>window.ui</file>
+    <file>main_window.ui</file>
     <file>header.ui</file>
   </gresource>
 </gresources>

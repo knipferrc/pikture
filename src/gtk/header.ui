@@ -23,6 +23,7 @@
         </child>
         <child type="start">
           <object class="GtkButton" id="open_image">
+            <signal name="clicked" handler="open_button_clicked" />
             <child>
               <object class="AdwButtonContent">
                 <property name="icon-name">document-open-symbolic</property>
@@ -33,10 +34,13 @@
         </child>
         <child type="start">
           <object class="GtkButton" id="delete_image">
+            <signal name="clicked" handler="delete_image_clicked" />
+
             <style>
               <class name="destructive-action" />
             </style>
             <property name="icon-name">user-trash-symbolic</property>
+            <property name="sensitive">false</property>
           </object>
         </child>
       </object>

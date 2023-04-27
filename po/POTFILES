@@ -7,4 +7,4 @@ data/pikture.desktop.in
 data/pikture.metainfo.xml.in
 ui/header.ui
 ui/viewer.ui
-ui/window.ui
+ui/main_window.ui
