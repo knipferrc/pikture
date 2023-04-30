@@ -5,16 +5,16 @@ public class Pikture.App : Adw.Application {
         { "about", about },
     };
 
-    construct {
-        add_action_entries (action_entries, this);
-        set_accels_for_action ("app.quit", { "<Ctrl>Q" });
-        set_accels_for_action ("app.about", { "<Ctrl>A" });
-    }
-
     public App () {
         Object (application_id: "com.github.mistakenelf.pikture",
                 flags : GLib.ApplicationFlags.HANDLES_OPEN
         );
+    }
+
+    construct {
+        add_action_entries (action_entries, this);
+        set_accels_for_action ("app.quit", { "<Ctrl>Q" });
+        set_accels_for_action ("app.about", { "<Ctrl>A" });
     }
 
     protected override void activate () {

@@ -35,7 +35,6 @@
         <child type="start">
           <object class="GtkButton" id="delete_image">
             <signal name="clicked" handler="delete_image_clicked" />
-
             <style>
               <class name="destructive-action" />
             </style>
