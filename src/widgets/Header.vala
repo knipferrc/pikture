@@ -27,11 +27,9 @@ public class Pikture.Header : Adw.Bin {
             var file = yield dialog.open (null, GLib.Cancellable.get_current ());
 
             if (file != null) {
-                this.enable_delete ();
                 this.update_displayed_image_signal (file.get_path ());
             }
         } catch (Error e) {
-            this.disable_delete ();
             print (e.message);
         }
     }
