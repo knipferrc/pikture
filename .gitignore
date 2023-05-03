@@ -4,3 +4,4 @@
 /.flatpak
 /.flatpak-builder
 /subprojects/**/
+.DS_Store
