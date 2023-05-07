@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk" version="4.10" />
+  <menu id="action-menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">About</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Quit</attribute>
+        <attribute name="action">app.quit</attribute>
+      </item>
+    </section>
+  </menu>
   <template class="PiktureMainWindow" parent="AdwApplicationWindow">
     <property name="default-height">700</property>
     <property name="default-width">500</property>
@@ -9,7 +21,41 @@
       <object class="GtkBox" id="layout_box">
         <property name="orientation">vertical</property>
         <child>
-          <object class="PiktureHeader" id="header" />
+          <object class="AdwHeaderBar" id="header">
+            <child type="end">
+              <object class="GtkMenuButton">
+                <property name="menu-model">action-menu</property>
+                <property name="icon-name">open-menu-symbolic</property>
+              </object>
+            </child>
+            <!-- <child type="start">
+              <object class="GtkToggleButton" id="toggle_pane_button">
+                <property name="icon-name">sidebar-show-symbolic</property>
+                <property name="active">True</property>
+              </object>
+            </child> -->
+            <child type="start">
+              <object class="GtkButton" id="open_image">
+                <signal name="clicked" handler="open_button_clicked" />
+                <child>
+                  <object class="AdwButtonContent">
+                    <property name="icon-name">document-open-symbolic</property>
+                    <property name="label" translatable="yes">Open</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="start">
+              <object class="GtkButton" id="delete_image">
+                <signal name="clicked" handler="delete_image_clicked" />
+                <style>
+                  <class name="destructive-action" />
+                </style>
+                <property name="icon-name">user-trash-symbolic</property>
+                <property name="sensitive">false</property>
+              </object>
+            </child>
+          </object>
         </child>
         <child>
           <object class="PiktureViewer" id="viewer" />
