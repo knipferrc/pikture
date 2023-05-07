@@ -28,12 +28,12 @@
                 <property name="icon-name">open-menu-symbolic</property>
               </object>
             </child>
-            <!-- <child type="start">
-              <object class="GtkToggleButton" id="toggle_pane_button">
-                <property name="icon-name">sidebar-show-symbolic</property>
-                <property name="active">True</property>
+            <child type="start">
+              <object class="GtkToggleButton">
+                <property name="icon-name">sidebar-show-right-symbolic</property>
+                <signal name="clicked" handler="on_flap_button_toggled" />
               </object>
-            </child> -->
+            </child>
             <child type="start">
               <object class="GtkButton" id="open_image">
                 <signal name="clicked" handler="open_button_clicked" />
@@ -45,7 +45,7 @@
                 </child>
               </object>
             </child>
-            <child type="start">
+            <child type="end">
               <object class="GtkButton" id="delete_image">
                 <signal name="clicked" handler="delete_image_clicked" />
                 <style>
@@ -58,7 +58,19 @@
           </object>
         </child>
         <child>
-          <object class="PiktureViewer" id="viewer" />
+          <object class="AdwFlap" id="adw_flap">
+            <property name="flap">
+              <object class="GtkLabel" id="filename">
+                <property name="label" />
+                <property name="valign">start</property>
+              </object>
+            </property>
+            <property name="content">
+              <object class="PiktureViewer" id="viewer" />
+            </property>
+            <property name="locked">true</property>
+            <property name="reveal-flap">true</property>
+          </object>
         </child>
       </object>
     </child>

@@ -2,6 +2,8 @@
 public class Pikture.MainWindow : Adw.ApplicationWindow {
     [GtkChild] private unowned Viewer viewer;
     [GtkChild] private unowned Gtk.Button delete_image;
+    [GtkChild] private unowned Adw.Flap adw_flap;
+    [GtkChild] private unowned Gtk.Label filename;
 
     public MainWindow (Adw.Application app) {
         Object (
@@ -17,12 +19,14 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
         this.viewer.set_displayed_image (file.get_path ());
     }
 
-    public void disable_delete () {
-        this.delete_image.sensitive = false;
-    }
-
-    public void enable_delete () {
-        this.delete_image.sensitive = true;
+    private void handle_signals () {
+        this.viewer.notify["filename"].connect (() => {
+            if (viewer.filename != "") {
+                this.delete_image.sensitive = true;
+            } else {
+                this.delete_image.sensitive = false;
+            }
+        });
     }
 
     [GtkCallback]
@@ -36,6 +40,7 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
 
             if (file != null) {
                 this.viewer.set_displayed_image (file.get_path ());
+                this.filename.set_label (file.get_basename ());
             }
         } catch (Error e) {
             print (e.message);
@@ -47,13 +52,8 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
         this.viewer.delete_picture ();
     }
 
-    private void handle_signals () {
-        this.viewer.notify["filename"].connect (() => {
-            if (viewer.filename != "") {
-                this.delete_image.sensitive = true;
-            } else {
-                this.delete_image.sensitive = false;
-            }
-        });
+    [GtkCallback]
+    private void on_flap_button_toggled () {
+        this.adw_flap.set_reveal_flap (!this.adw_flap.get_reveal_flap ());
     }
 }
