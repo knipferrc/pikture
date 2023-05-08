@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="PiktureSidebar" parent="AdwBin">
+    <child>
+      <object class="GtkBox">
+        <property name="margin-start">10</property>
+        <property name="margin-end">10</property>
+        <property name="margin-top">10</property>
+        <property name="margin-bottom">10</property>
+        <property name="orientation">vertical</property>
+        <property name="vexpand">true</property>
+        <property name="spacing">10</property>
+        <property name="width-request">220</property>
+        <child type="start">
+          <object class="GtkButton">
+            <signal name="clicked" handler="open_button_clicked" />
+            <child>
+              <object class="AdwButtonContent">
+                <property name="icon-name">document-open-symbolic</property>
+                <property name="label" translatable="yes">Open</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="start">
+          <object class="GtkBox">
+            <property name="vexpand">true</property>
+            <child>
+              <object class="GtkLabel" id="filename">
+                <property name="label" />
+                <property name="valign">start</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="delete_image_button">
+            <signal name="clicked" handler="delete_button_clicked" />
+            <child>
+              <object class="AdwButtonContent">
+                <property name="icon-name">user-trash-symbolic</property>
+                <property name="label" translatable="yes">Delete</property>
+              </object>
+            </child>
+            <style>
+              <class name="destructive-action" />
+            </style>
+            <property name="sensitive">false</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

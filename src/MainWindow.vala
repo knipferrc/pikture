@@ -1,9 +1,8 @@
 [GtkTemplate (ui = "/com/github/mistakenelf/pikture/main_window.ui")]
 public class Pikture.MainWindow : Adw.ApplicationWindow {
     [GtkChild] private unowned Viewer viewer;
-    [GtkChild] private unowned Gtk.Button delete_image;
     [GtkChild] private unowned Adw.Flap adw_flap;
-    [GtkChild] private unowned Gtk.Label filename;
+    [GtkChild] private unowned Sidebar sidebar;
 
     public MainWindow (Adw.Application app) {
         Object (
@@ -22,14 +21,16 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
     private void handle_signals () {
         this.viewer.notify["filename"].connect (() => {
             if (viewer.filename != "") {
-                this.delete_image.sensitive = true;
+                this.sidebar.enable_delete_button ();
             } else {
-                this.delete_image.sensitive = false;
+                this.sidebar.disable_delete_button ();
             }
         });
+
+        this.sidebar.update_displayed_image_signal.connect (this.open_button_clicked);
+        this.sidebar.delete_displayed_image_signal.connect (this.delete_image_clicked);
     }
 
-    [GtkCallback]
     private async void open_button_clicked () {
         var dialog = new Gtk.FileDialog ();
         dialog.set_title (_("Select a file"));
@@ -40,14 +41,12 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
 
             if (file != null) {
                 this.viewer.set_displayed_image (file.get_path ());
-                this.filename.set_label (file.get_basename ());
             }
         } catch (Error e) {
             print (e.message);
         }
     }
 
-    [GtkCallback]
     private void delete_image_clicked () {
         this.viewer.delete_picture ();
     }

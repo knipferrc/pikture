@@ -1,13 +1,14 @@
 public class Pikture.About : GLib.Object {
-    private Gtk.Window window;
+    public Gtk.Window window { get; construct; }
     private Adw.AboutWindow about;
 
     public About (Gtk.Window window) {
-        this.window = window;
-        this.build_ui ();
+        Object (
+                window: window
+        );
     }
 
-    public void build_ui () {
+    construct {
         const string copyright = "Copyright \xc2\xa9 2023 Tyler Knipfer";
         const string developers[] = {
             "Tyler Knipfer<knipferrc@gmail.com>",

@@ -3,5 +3,6 @@
   <gresource prefix="/com/github/mistakenelf/pikture">
     <file>viewer.ui</file>
     <file>main_window.ui</file>
+    <file>sidebar.ui</file>
   </gresource>
 </gresources>
