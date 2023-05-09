@@ -22,13 +22,27 @@
             </child>
           </object>
         </child>
-        <child type="start">
-          <object class="GtkBox">
+        <child>
+          <object class="GtkBox" id="file_info_container">
             <property name="vexpand">true</property>
+            <property name="orientation">vertical</property>
+            <property name="visible">false</property>
             <child>
-              <object class="GtkLabel" id="filename">
-                <property name="label" />
-                <property name="valign">start</property>
+              <object class="AdwActionRow" id="file_name">
+                <property name="title" translatable="yes">File Name</property>
+                <property name="subtitle"></property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow" id="file_size">
+                <property name="title" translatable="yes">File Size</property>
+                <property name="subtitle"></property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow" id="date_modified">
+                <property name="title" translatable="yes">Date Modified</property>
+                <property name="subtitle"></property>
               </object>
             </child>
           </object>

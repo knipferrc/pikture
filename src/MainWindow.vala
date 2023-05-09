@@ -16,6 +16,7 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
 
     public void open (GLib.File file) {
         this.viewer.set_displayed_image (file.get_path ());
+        this.sidebar.set_file_details (file);
     }
 
     private void handle_signals () {
@@ -41,6 +42,7 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
 
             if (file != null) {
                 this.viewer.set_displayed_image (file.get_path ());
+                this.sidebar.set_file_details (file);
             }
         } catch (Error e) {
             print (e.message);
