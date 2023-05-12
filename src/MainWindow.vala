@@ -20,14 +20,6 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
     }
 
     private void handle_signals () {
-        this.viewer.notify["filename"].connect (() => {
-            if (viewer.filename != "") {
-                this.sidebar.enable_delete_button ();
-            } else {
-                this.sidebar.disable_delete_button ();
-            }
-        });
-
         this.sidebar.update_displayed_image_signal.connect (this.open_button_clicked);
         this.sidebar.delete_displayed_image_signal.connect (this.delete_image_clicked);
     }

@@ -19,21 +19,14 @@ public class Pikture.Sidebar : Adw.Bin {
         this.delete_displayed_image_signal();
     }
 
-    public void disable_delete_button() {
-        this.delete_image_button.sensitive = false;
-    }
-
-    public void enable_delete_button() {
-        this.delete_image_button.sensitive = true;
-    }
-
     public void set_file_details(GLib.File file) {
         try {
             this.file_info_container.visible = true;
+            this.delete_image_button.visible = true;
             var info = file.query_info("*", FileQueryInfoFlags.NONE);
             this.file_name.set_subtitle(info.get_name());
-            this.file_size.set_subtitle(info.get_size().to_string());
-            this.date_modified.set_subtitle(info.get_modification_date_time().to_string());
+            this.file_size.set_subtitle(GLib.format_size(info.get_size()));
+            this.date_modified.set_subtitle(info.get_modification_date_time().format("%m/%d/%y %H:%M"));
         } catch (Error error) {
             stderr.printf(@"$(error.message)\n");
         }

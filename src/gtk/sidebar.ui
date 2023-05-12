@@ -22,7 +22,22 @@
             </child>
           </object>
         </child>
-        <child>
+        <child type="start">
+          <object class="GtkButton" id="delete_image_button">
+            <property name="visible">false</property>
+            <signal name="clicked" handler="delete_button_clicked" />
+            <child>
+              <object class="AdwButtonContent">
+                <property name="icon-name">user-trash-symbolic</property>
+                <property name="label" translatable="yes">Delete</property>
+              </object>
+            </child>
+            <style>
+              <class name="destructive-action" />
+            </style>
+          </object>
+        </child>
+        <child type="start">
           <object class="GtkBox" id="file_info_container">
             <property name="vexpand">true</property>
             <property name="orientation">vertical</property>
@@ -45,21 +60,6 @@
                 <property name="subtitle"></property>
               </object>
             </child>
-          </object>
-        </child>
-        <child type="end">
-          <object class="GtkButton" id="delete_image_button">
-            <signal name="clicked" handler="delete_button_clicked" />
-            <child>
-              <object class="AdwButtonContent">
-                <property name="icon-name">user-trash-symbolic</property>
-                <property name="label" translatable="yes">Delete</property>
-              </object>
-            </child>
-            <style>
-              <class name="destructive-action" />
-            </style>
-            <property name="sensitive">false</property>
           </object>
         </child>
       </object>
