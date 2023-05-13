@@ -6,3 +6,4 @@ sources = files(
 
 subdir('widgets')
 subdir('gtk')
+subdir('services')

@@ -4,6 +4,8 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
     [GtkChild] private unowned Adw.Flap adw_flap;
     [GtkChild] private unowned Sidebar sidebar;
 
+    private DialogService dialog_service;
+
     public MainWindow (Adw.Application app) {
         Object (
                 application: app
@@ -11,6 +13,7 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
     }
 
     construct {
+        this.dialog_service = new DialogService (this);
         this.handle_signals ();
     }
 
@@ -22,23 +25,14 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
     private void handle_signals () {
         this.sidebar.update_displayed_image_signal.connect (this.open_button_clicked);
         this.sidebar.delete_displayed_image_signal.connect (this.delete_image_clicked);
+        this.dialog_service.file_opened_signal.connect ((file) => {
+            this.viewer.set_displayed_image (file.get_path ());
+            this.sidebar.set_file_details (file);
+        });
     }
 
     private async void open_button_clicked () {
-        var dialog = new Gtk.FileDialog ();
-        dialog.set_title (_("Select a file"));
-        dialog.modal = true;
-
-        try {
-            var file = yield dialog.open (this, null);
-
-            if (file != null) {
-                this.viewer.set_displayed_image (file.get_path ());
-                this.sidebar.set_file_details (file);
-            }
-        } catch (Error e) {
-            print (e.message);
-        }
+        this.dialog_service.open_file_dialog.begin ();
     }
 
     private void delete_image_clicked () {
