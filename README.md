@@ -2,6 +2,8 @@
 
 A simple image viewer
 
+![screenshot](./assets/screenshot.png)
+
 # Local Development
 
 ## Building
