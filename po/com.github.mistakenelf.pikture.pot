@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mistakenelf.pikture\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-25 10:11-0400\n"
+"POT-Creation-Date: 2023-05-12 20:28-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/widgets/Header.vala:30
-msgid "Select a file"
-msgstr ""
-
-#: src/widgets/About.vala:19 data/pikture.desktop.in:5
-#: data/pikture.metainfo.xml.in:4 ui/window.ui:6
+#: src/widgets/About.vala:20 data/pikture.desktop.in:5
+#: data/pikture.metainfo.xml.in:4 src/gtk/main_window.ui:19
 msgid "Pikture"
 msgstr ""
 
-#: src/widgets/About.vala:25
+#: src/widgets/About.vala:26
 msgid "translator_credits"
 msgstr ""
 
@@ -35,14 +31,30 @@ msgstr ""
 msgid "A simple image viewer"
 msgstr ""
 
-#: ui/header.ui:6
+#: src/gtk/main_window.ui:7
 msgid "About"
 msgstr ""
 
-#: ui/header.ui:10
+#: src/gtk/main_window.ui:11
 msgid "Quit"
 msgstr ""
 
-#: ui/header.ui:36
+#: src/gtk/sidebar.ui:20
 msgid "Open"
+msgstr ""
+
+#: src/gtk/sidebar.ui:32
+msgid "Delete"
+msgstr ""
+
+#: src/gtk/sidebar.ui:47
+msgid "File Name"
+msgstr ""
+
+#: src/gtk/sidebar.ui:53
+msgid "File Size"
+msgstr ""
+
+#: src/gtk/sidebar.ui:59
+msgid "Date Modified"
 msgstr ""
