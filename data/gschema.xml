@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="@APP_ID@" path="/@APP_PATH@/">
+  <schema id="com.github.mistakenelf.pikture" path="/com/github/mistakenelf/pikture/">
     <key name="width" type="i">
       <default>640</default>
     </key>
