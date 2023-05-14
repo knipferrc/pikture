@@ -10,6 +10,5 @@
       A simple image viewer
     </p>
   </description>
-
   <launchable type="desktop-id">com.github.mistakenelf.pikture.desktop</launchable>
 </component>
