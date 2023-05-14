@@ -35,7 +35,7 @@ public class Pikture.App : Adw.Application {
             this.window.maximize ();
         }
 
-        if (settings.get_boolean ("window-fullscreen")) {
+        if (settings.get_boolean ("window-fullscreened")) {
             this.window.fullscreen ();
         }
 
