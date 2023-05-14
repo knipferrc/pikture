@@ -10,7 +10,7 @@
     <key name="window-maximized" type="b">
       <default>false</default>
     </key>
-    <key name="window-fullscreen" type="b">
+    <key name="window-fullscreened" type="b">
       <default>false</default>
     </key>
   </schema>

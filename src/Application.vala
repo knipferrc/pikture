@@ -40,7 +40,7 @@ public class Pikture.App : Adw.Application {
         }
 
         settings.bind ("window-maximized", this.window, "maximized", SettingsBindFlags.SET);
-        settings.bind ("window-fullscreen", this.window, "fullscreen", SettingsBindFlags.SET);
+        settings.bind ("window-fullscreened", this.window, "fullscreened", SettingsBindFlags.SET);
     }
 
     protected override void open (GLib.File[] files, string hint) {
