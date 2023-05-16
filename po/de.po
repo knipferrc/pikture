@@ -22,7 +22,7 @@ msgstr "Um"
 
 #: src/gtk/main_window.ui:11
 msgid "Quit"
-msgstr "Aufhören"
+msgstr "Aufhren"
 
 #: src/gtk/sidebar.ui:20
 #, fuzzy
@@ -31,7 +31,7 @@ msgstr "Offen"
 
 #: src/gtk/sidebar.ui:32
 msgid "Delete"
-msgstr "Löschen"
+msgstr "Lschen"
 
 #: src/gtk/sidebar.ui:47
 msgid "File Name"
@@ -39,11 +39,11 @@ msgstr "Dateinamen"
 
 #: src/gtk/sidebar.ui:53
 msgid "File Size"
-msgstr "Dateigröße"
+msgstr "Dateigre"
 
 #: src/gtk/sidebar.ui:59
 msgid "Date Modified"
-msgstr "Datum geändert"
+msgstr "Datum gendert"
 
 #, fuzzy
 #~ msgid "A simple gtk4 libadwaita image viewer"
