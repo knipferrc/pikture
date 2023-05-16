@@ -1,11 +1,15 @@
-#: src/widgets/About.vala:20 data/pikture.desktop.in:5
-#: data/pikture.metainfo.xml.in:4 src/gtk/main_window.ui:19
-msgid "Pikture"
-msgstr "Pikture"
-
 #: src/widgets/About.vala:26
 msgid "translator_credits"
 msgstr ""
+
+#: src/services/Dialog.vala:14
+msgid "Select a file"
+msgstr "Whlen Sie eine Datei aus"
+
+#: data/pikture.desktop.in:5 data/pikture.metainfo.xml.in:4
+#: src/gtk/main_window.ui:17
+msgid "Pikture"
+msgstr "Pikture"
 
 #: data/pikture.desktop.in:6 data/pikture.metainfo.xml.in:5
 #: data/pikture.metainfo.xml.in:9
@@ -14,11 +18,11 @@ msgstr "Ein einfacher Bildbetrachter"
 
 #: src/gtk/main_window.ui:7
 msgid "About"
-msgstr ""
+msgstr "Um"
 
 #: src/gtk/main_window.ui:11
 msgid "Quit"
-msgstr ""
+msgstr "Aufhören"
 
 #: src/gtk/sidebar.ui:20
 #, fuzzy
@@ -27,22 +31,19 @@ msgstr "Offen"
 
 #: src/gtk/sidebar.ui:32
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #: src/gtk/sidebar.ui:47
 msgid "File Name"
-msgstr ""
+msgstr "Dateinamen"
 
 #: src/gtk/sidebar.ui:53
 msgid "File Size"
-msgstr ""
+msgstr "Dateigröße"
 
 #: src/gtk/sidebar.ui:59
 msgid "Date Modified"
-msgstr ""
-
-#~ msgid "Select a file"
-#~ msgstr "Whlen Sie eine Datei aus"
+msgstr "Datum geändert"
 
 #, fuzzy
 #~ msgid "A simple gtk4 libadwaita image viewer"

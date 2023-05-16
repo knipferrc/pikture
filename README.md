@@ -22,4 +22,6 @@ flatpak-builder build com.github.mistakenelf.pikture.yml --user --install --forc
 
 ## Updating translations
 
-`ninja com.github.mistakenelf.pikture-update-po`
+```
+ninja com.github.mistakenelf.pikture-update-po
+```

@@ -16,16 +16,16 @@ public class Pikture.About : GLib.Object {
         };
 
         this.about = new Adw.AboutWindow () {
-            application_icon = "com.github.mistakenelf.pikture",
-            application_name = _("Pikture"),
+            application_icon = Constants.APP_ID,
+            application_name = Constants.APP_NAME,
             copyright = copyright,
             developers = developers,
-            issue_url = "https://github.com/mistakenelf/pikture/issues",
+            issue_url = Constants.APP_BUG_TRACKER_URL,
             license_type = Gtk.License.MIT_X11,
             transient_for = this.window,
             translator_credits = _("translator_credits"),
-            version = "0.0.1",
-            website = "https://github.com/mistakenelf/pikture",
+            version = Constants.APP_VERSION,
+            website = Constants.APP_HOMEPAGE_URL,
         };
     }
 

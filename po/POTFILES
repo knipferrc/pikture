@@ -6,6 +6,8 @@ src/widgets/Viewer.vala
 src/widgets/About.vala
 src/widgets/Sidebar.vala
 
+src/services/Dialog.vala
+
 data/pikture.desktop.in
 data/pikture.metainfo.xml.in
 

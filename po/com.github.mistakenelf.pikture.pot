@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mistakenelf.pikture\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-12 20:30-0400\n"
+"POT-Creation-Date: 2023-05-16 15:37-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,13 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/widgets/About.vala:20 data/pikture.desktop.in:5
-#: data/pikture.metainfo.xml.in:4 src/gtk/main_window.ui:19
-msgid "Pikture"
-msgstr ""
-
 #: src/widgets/About.vala:26
 msgid "translator_credits"
+msgstr ""
+
+#: src/services/Dialog.vala:14
+msgid "Select a file"
+msgstr ""
+
+#: data/pikture.desktop.in:5 data/pikture.metainfo.xml.in:4
+#: src/gtk/main_window.ui:17
+msgid "Pikture"
 msgstr ""
 
 #: data/pikture.desktop.in:6 data/pikture.metainfo.xml.in:5
