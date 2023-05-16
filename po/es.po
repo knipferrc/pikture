@@ -33,7 +33,7 @@ msgstr "Pikture"
 #: data/pikture.desktop.in:6 data/pikture.metainfo.xml.in:5
 #: data/pikture.metainfo.xml.in:9
 msgid "A simple image viewer"
-msgstr "Un visor de imágenes sencillo"
+msgstr "Un visor de imagenes sencillo"
 
 #: src/gtk/main_window.ui:7
 msgid "About"
@@ -57,7 +57,7 @@ msgstr "Nombre del archivo"
 
 #: src/gtk/sidebar.ui:53
 msgid "File Size"
-msgstr "Tamaño del archivo"
+msgstr "Tamano del archivo"
 
 #: src/gtk/sidebar.ui:59
 msgid "Date Modified"
