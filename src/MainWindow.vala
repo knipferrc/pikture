@@ -4,6 +4,8 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
     [GtkChild] private unowned Adw.Flap adw_flap;
     [GtkChild] private unowned Sidebar sidebar;
     [GtkChild] private unowned Gtk.Button delete_image_button;
+    [GtkChild] private unowned Gtk.Button rotate_counterclockwise_button;
+    [GtkChild] private unowned Gtk.Button rotate_clockwise_button;
 
     private DialogService dialog_service;
 
@@ -33,6 +35,16 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
         this.adw_flap.set_reveal_flap (!this.adw_flap.get_reveal_flap ());
     }
 
+    [GtkCallback]
+    private void on_clockwise_clicked () {
+        this.viewer.rotate_picture (Gdk.PixbufRotation.CLOCKWISE);
+    }
+
+    [GtkCallback]
+    private void on_counter_clockwise_clicked () {
+        this.viewer.rotate_picture (Gdk.PixbufRotation.COUNTERCLOCKWISE);
+    }
+
     public void open (GLib.File file) {
         this.viewer.set_displayed_image (file.get_path ());
         this.sidebar.set_file_details (file);
@@ -43,11 +55,16 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
             if (viewer.filename != "") {
                 this.adw_flap.set_reveal_flap (true);
                 this.delete_image_button.set_visible (true);
+                this.rotate_clockwise_button.set_visible (true);
+                this.rotate_counterclockwise_button.set_visible (true);
             } else {
                 this.adw_flap.set_reveal_flap (false);
                 this.delete_image_button.set_visible (false);
+                this.rotate_clockwise_button.set_visible (false);
+                this.rotate_counterclockwise_button.set_visible (false);
             }
         });
+
         this.dialog_service.file_opened_signal.connect ((file) => {
             this.viewer.set_displayed_image (file.get_path ());
             this.sidebar.set_file_details (file);
