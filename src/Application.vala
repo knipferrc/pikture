@@ -26,7 +26,20 @@ public class Pikture.App : Adw.Application {
     protected override void activate () {
         this.window = new MainWindow (this);
         this.window.present ();
+        this.bind_settings ();
+    }
 
+    protected override void open (GLib.File[] files, string hint) {
+        if (this.window == null) {
+            this.window = new MainWindow (this);
+        }
+
+        this.window.open (files[0]);
+        this.window.present ();
+        this.bind_settings ();
+    }
+
+    private void bind_settings () {
         var settings = new GLib.Settings (Constants.APP_ID);
         settings.bind ("window-height", this.window, "default-height", SettingsBindFlags.DEFAULT);
         settings.bind ("window-width", this.window, "default-width", SettingsBindFlags.DEFAULT);
@@ -41,15 +54,6 @@ public class Pikture.App : Adw.Application {
 
         settings.bind ("window-maximized", this.window, "maximized", SettingsBindFlags.SET);
         settings.bind ("window-fullscreened", this.window, "fullscreened", SettingsBindFlags.SET);
-    }
-
-    protected override void open (GLib.File[] files, string hint) {
-        if (this.window == null) {
-            this.window = new MainWindow (this);
-        }
-
-        this.window.open (files[0]);
-        this.window.present ();
     }
 
     private void about () {
