@@ -7,6 +7,7 @@ public class Pikture.Sidebar : Adw.Bin {
     [GtkChild] private unowned Adw.ActionRow date_modified;
     [GtkChild] private unowned Adw.ActionRow width;
     [GtkChild] private unowned Adw.ActionRow height;
+    [GtkChild] private unowned Adw.ActionRow image_type;
 
     public signal void update_displayed_image_signal();
     public signal void delete_displayed_image_signal();
@@ -23,22 +24,25 @@ public class Pikture.Sidebar : Adw.Bin {
 
     public void set_file_details(GLib.File file) {
         try {
-            this.file_info_container.visible = true;
-            this.delete_image_button.visible = true;
+            this.file_info_container.set_visible(true);
+            this.delete_image_button.set_visible(true);
 
             var info = file.query_info("*", FileQueryInfoFlags.NONE);
 
             var pixbuf = new Gdk.Pixbuf.from_file(file.get_path());
             if (pixbuf == null) {
-                this.width.subtitle = "N/A";
-                this.height.subtitle = "N/A";
+                this.width.set_subtitle("N/A");
+                this.height.set_subtitle("N/A");
             }
 
-            this.file_name.subtitle = info.get_name();
-            this.file_size.subtitle = GLib.format_size(info.get_size());
-            this.date_modified.subtitle = info.get_modification_date_time().format("%m/%d/%y %H:%M");
-            this.width.subtitle = @"%d %s".printf(pixbuf.width, "Pixels");
-            this.height.subtitle = @"%d %s".printf(pixbuf.height, "Pixels");
+            this.file_name.set_subtitle(info.get_name());
+            this.file_size.set_subtitle(GLib.format_size(info.get_size()));
+            this.date_modified.set_subtitle(info.get_modification_date_time().format("%m/%d/%y %H:%M"));
+            this.width.set_subtitle("%d %s".printf(pixbuf.width, "Pixels"));
+            this.height.set_subtitle("%d %s".printf(pixbuf.height, "Pixels"));
+
+            var image_description = GLib.ContentType.get_description(info.get_content_type());
+            this.image_type.set_subtitle(image_description);
         } catch (Error error) {
             stderr.printf(@"$(error.message)\n");
         }

@@ -74,6 +74,12 @@
                 <property name="subtitle"></property>
               </object>
             </child>
+            <child>
+              <object class="AdwActionRow" id="image_type">
+                <property name="title" translatable="yes">Image Type</property>
+                <property name="subtitle"></property>
+              </object>
+            </child>
           </object>
         </child>
       </object>
