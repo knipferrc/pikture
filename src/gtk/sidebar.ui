@@ -12,34 +12,8 @@
         <property name="spacing">10</property>
         <property name="width-request">220</property>
         <child type="start">
-          <object class="GtkButton">
-            <signal name="clicked" handler="open_button_clicked" />
-            <child>
-              <object class="AdwButtonContent">
-                <property name="icon-name">document-open-symbolic</property>
-                <property name="label" translatable="yes">Open</property>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child type="start">
-          <object class="GtkButton" id="delete_image_button">
-            <property name="visible">false</property>
-            <signal name="clicked" handler="delete_button_clicked" />
-            <child>
-              <object class="AdwButtonContent">
-                <property name="icon-name">user-trash-symbolic</property>
-                <property name="label" translatable="yes">Delete</property>
-              </object>
-            </child>
-            <style>
-              <class name="destructive-action" />
-            </style>
-          </object>
-        </child>
-        <child type="start">
-          <object class="GtkListBox" id="file_info_container">
-            <property name="visible">false</property>
+          <object class="GtkListBox">
+            <property name="visible">true</property>
             <property name="selection-mode">none</property>
             <style>
               <class name="boxed-list" />

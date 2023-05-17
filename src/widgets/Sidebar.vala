@@ -1,7 +1,5 @@
 [GtkTemplate(ui = "/com/github/mistakenelf/pikture/sidebar.ui")]
 public class Pikture.Sidebar : Adw.Bin {
-    [GtkChild] private unowned Gtk.Button delete_image_button;
-    [GtkChild] private unowned Gtk.ListBox file_info_container;
     [GtkChild] private unowned Adw.ActionRow file_name;
     [GtkChild] private unowned Adw.ActionRow file_size;
     [GtkChild] private unowned Adw.ActionRow date_modified;
@@ -9,24 +7,8 @@ public class Pikture.Sidebar : Adw.Bin {
     [GtkChild] private unowned Adw.ActionRow height;
     [GtkChild] private unowned Adw.ActionRow image_type;
 
-    public signal void update_displayed_image_signal();
-    public signal void delete_displayed_image_signal();
-
-    [GtkCallback]
-    private void open_button_clicked() {
-        this.update_displayed_image_signal();
-    }
-
-    [GtkCallback]
-    private void delete_button_clicked() {
-        this.delete_displayed_image_signal();
-    }
-
     public void set_file_details(GLib.File file) {
         try {
-            this.file_info_container.set_visible(true);
-            this.delete_image_button.set_visible(true);
-
             var info = file.query_info("*", FileQueryInfoFlags.NONE);
 
             var pixbuf = new Gdk.Pixbuf.from_file(file.get_path());
