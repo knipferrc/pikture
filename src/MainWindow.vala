@@ -84,8 +84,7 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
         });
 
         this.dialog_service.file_save_signal.connect ((file) => {
-            print (file.get_path ());
-            this.viewer.save_picture (file.get_path ());
+            this.viewer.save_picture (file.get_path (), file.get_basename ());
         });
     }
 }
