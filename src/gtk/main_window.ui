@@ -28,7 +28,7 @@
             </child>
             <child type="end">
               <object class="GtkButton" id="delete_image_button">
-                <signal name="clicked" handler="delete_button_clicked" />
+                <signal name="clicked" handler="on_delete_clicked" />
                 <property name="visible">false</property>
                 <property name="icon-name">user-trash-symbolic</property>
                 <style>
@@ -38,14 +38,22 @@
             </child>
             <child type="start">
               <object class="GtkToggleButton">
-                <signal name="clicked" handler="on_flap_button_toggled" />
+                <signal name="clicked" handler="on_flap_toggled" />
                 <property name="icon-name">sidebar-show-right-symbolic</property>
               </object>
             </child>
             <child type="start">
               <object class="GtkButton">
-                <signal name="clicked" handler="open_button_clicked" />
+                <signal name="clicked" handler="on_open_clicked" />
                 <property name="icon-name">document-open-symbolic</property>
+              </object>
+            </child>
+            <child type="start">
+              <object class="GtkButton" id="save_button">
+                <signal name="clicked" handler="on_save_clicked" />
+                <property name="has-frame">false</property>
+                <property name="visible">false</property>
+                <property name="icon-name">document-save-symbolic</property>
               </object>
             </child>
             <child type="start">

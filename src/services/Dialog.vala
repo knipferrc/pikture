@@ -3,6 +3,7 @@ public class Pikture.DialogService : GLib.Object {
 
     public signal void file_opened_signal(GLib.File file);
     public signal void delete_image_signal();
+    public signal void file_save_signal(GLib.File file);
 
     public DialogService(Gtk.Window window) {
         Object(
@@ -41,5 +42,21 @@ public class Pikture.DialogService : GLib.Object {
         });
 
         alert.present();
+    }
+
+    public async void save_file_dialog() {
+        var dialog = new Gtk.FileDialog();
+        dialog.set_title(_("Save file"));
+        dialog.modal = true;
+
+        try {
+            var file = yield dialog.save(this.window, null);
+
+            if (file != null) {
+                this.file_save_signal(file);
+            }
+        } catch (Error error) {
+            stderr.printf(error.message);
+        }
     }
 }

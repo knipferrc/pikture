@@ -42,4 +42,17 @@ public class Pikture.Viewer : Adw.Bin {
     public string get_current_filename () {
         return this.picture.get_file ().get_basename ();
     }
+
+    public void save_picture (string filepath) {
+        try {
+            FileStream file = FileStream.open (filepath, "w");
+            this.pixbuf.save_to_callbackv ((data) => {
+                file.write (data);
+
+                return true;
+            }, "png", null, null);
+        } catch (Error e) {
+            stderr.printf ("Error saving image: %s\n", e.message);
+        }
+    }
 }
