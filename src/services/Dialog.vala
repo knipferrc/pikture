@@ -2,6 +2,7 @@ public class Pikture.DialogService : GLib.Object {
     public Gtk.Window window { get; construct; }
 
     public signal void file_opened_signal(GLib.File file);
+    public signal void delete_image_signal();
 
     public DialogService(Gtk.Window window) {
         Object(
@@ -20,8 +21,25 @@ public class Pikture.DialogService : GLib.Object {
             if (file != null) {
                 this.file_opened_signal(file);
             }
-        } catch (Error e) {
-            print(e.message);
+        } catch (Error error) {
+            stderr.printf(error.message);
         }
+    }
+
+    public void open_delete_image_dialog(string filename) {
+        var alert = new Adw.MessageDialog(this.window, "Are you sure?", "%s will be deleted".printf(filename));
+        alert.add_response("cancel", "Cancel");
+        alert.add_response("delete", "Delete");
+        alert.set_response_appearance("delete", Adw.ResponseAppearance.DESTRUCTIVE);
+        alert.set_default_response("cancel");
+        alert.set_close_response("cancel");
+
+        alert.response.connect((dialog, response) => {
+            if (response == "delete") {
+                this.delete_image_signal();
+            }
+        });
+
+        alert.present();
     }
 }

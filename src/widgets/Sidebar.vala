@@ -26,7 +26,16 @@ public class Pikture.Sidebar : Adw.Bin {
             var image_description = GLib.ContentType.get_description(info.get_content_type());
             this.image_type.set_subtitle(image_description);
         } catch (Error error) {
-            stderr.printf(@"$(error.message)\n");
+            stderr.printf(error.message);
         }
+    }
+
+    public void reset_details() {
+        this.file_name.set_subtitle("");
+        this.file_size.set_subtitle("");
+        this.date_modified.set_subtitle("");
+        this.width.set_subtitle("");
+        this.height.set_subtitle("");
+        this.image_type.set_subtitle("");
     }
 }

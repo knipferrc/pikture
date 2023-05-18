@@ -27,7 +27,7 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
 
     [GtkCallback]
     private void delete_button_clicked () {
-        this.viewer.delete_picture ();
+        this.dialog_service.open_delete_image_dialog (this.viewer.get_current_filename ());
     }
 
     [GtkCallback]
@@ -68,6 +68,11 @@ public class Pikture.MainWindow : Adw.ApplicationWindow {
         this.dialog_service.file_opened_signal.connect ((file) => {
             this.viewer.set_displayed_image (file.get_path ());
             this.sidebar.set_file_details (file);
+        });
+
+        this.dialog_service.delete_image_signal.connect (() => {
+            this.viewer.delete_picture ();
+            this.sidebar.reset_details ();
         });
     }
 }

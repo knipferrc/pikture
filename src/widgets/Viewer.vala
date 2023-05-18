@@ -8,6 +8,7 @@ public class Pikture.Viewer : Adw.Bin {
 
     public void set_displayed_image (string filename) {
         this.filename = filename;
+        this.picture.set_filename (this.filename);
 
         try {
             var pixbuf = new Gdk.Pixbuf.from_file (this.filename);
@@ -18,7 +19,7 @@ public class Pikture.Viewer : Adw.Bin {
             this.picture.set_pixbuf (pixbuf);
             this.pixbuf = pixbuf;
         } catch (Error error) {
-            stderr.printf (@"$(error.message)\n");
+            stderr.printf (error.message);
         }
     }
 
@@ -33,8 +34,12 @@ public class Pikture.Viewer : Adw.Bin {
             this.picture.get_file ().delete ();
             this.picture.set_filename ("");
             this.filename = "";
-        } catch (Error e) {
-            print ("Error: %s\n", e.message);
+        } catch (Error error) {
+            stderr.printf (error.message);
         }
+    }
+
+    public string get_current_filename () {
+        return this.picture.get_file ().get_basename ();
     }
 }
