@@ -4,6 +4,14 @@ A simple image viewer
 
 ![screenshot](./assets/screenshot.png)
 
+# Features
+
+-   View Images!
+-   File details in sidebar (width, height, file size, name and date modified)
+-   Rotate clockwise and counter-clockwise
+-   Save an image
+-   Delete an image
+
 # Installation
 
 ## Arch

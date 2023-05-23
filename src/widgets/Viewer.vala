@@ -43,9 +43,11 @@ public class Pikture.Viewer : Adw.Bin {
         return this.picture.get_file ().get_basename ();
     }
 
-    public void save_picture (string filepath) {
+    public void save_picture (string filepath, string basename) {
+        var final_path = this.has_extension (basename) ? filepath : filepath + ".png";
+
         try {
-            FileStream file = FileStream.open (filepath, "w");
+            FileStream file = FileStream.open (final_path, "w");
             this.pixbuf.save_to_callbackv ((data) => {
                 file.write (data);
 
@@ -54,5 +56,18 @@ public class Pikture.Viewer : Adw.Bin {
         } catch (Error e) {
             stderr.printf ("Error saving image: %s\n", e.message);
         }
+    }
+
+    private bool has_extension (string filename) {
+        string basename = File.new_for_path (filename).get_basename ();
+
+        if (basename != null) {
+            int dotIndex = basename.index_of_char ('.');
+            if (dotIndex != -1 && dotIndex < basename.length - 1) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
