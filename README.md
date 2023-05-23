@@ -4,6 +4,14 @@ A simple image viewer
 
 ![screenshot](./assets/screenshot.png)
 
+# Installation
+
+## Arch
+
+```
+yay -S pikture-git
+```
+
 # Local Development
 
 ## Building
