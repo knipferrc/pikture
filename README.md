@@ -12,6 +12,14 @@ A simple image viewer
 -   Save an image
 -   Delete an image
 
+# Installation
+
+## Arch
+
+```
+yay -S pikture-git
+```
+
 # Local Development
 
 ## Building
