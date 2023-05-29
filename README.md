@@ -25,6 +25,8 @@ ninja -C build
 ### Build Flatpak
 
 ```
+flatpak install flathub org.gnome.Platform//44
+flatpak install flathub org.gnome.Sdk//44
 flatpak-builder build com.github.mistakenelf.pikture.yml --user --install --force-clean
 ```
 
