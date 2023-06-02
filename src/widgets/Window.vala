@@ -6,8 +6,7 @@ public class Pikture.Window : Adw.ApplicationWindow {
     [GtkChild] private unowned Gtk.Button rotate_counterclockwise_button;
     [GtkChild] private unowned Gtk.Button rotate_clockwise_button;
     [GtkChild] private unowned Gtk.Button save_button;
-    [GtkChild] private unowned Adw.TabView tab_view;
-    [GtkChild] private unowned Adw.TabBar tab_bar;
+    [GtkChild] private unowned Gtk.Notebook notebook;
 
     private DialogService dialog_service;
     private Viewer viewer;
@@ -21,13 +20,13 @@ public class Pikture.Window : Adw.ApplicationWindow {
     construct {
         this.dialog_service = new DialogService (this);
         this.viewer = new Viewer ();
-        this.tab_bar.view = this.tab_view;
         this.connect_signals ();
     }
 
-    public void open (GLib.File file) {
-        this.viewer.set_displayed_image (file.get_path ());
-        this.sidebar.set_file_details (file);
+    public void open (GLib.File[] files) {
+        foreach (GLib.File file in files) {
+            this.add_tab (file);
+        }
     }
 
     private void connect_signals () {
@@ -48,7 +47,8 @@ public class Pikture.Window : Adw.ApplicationWindow {
         });
 
         this.dialog_service.file_opened_signal.connect ((file) => {
-            this.new_tab (file);
+            this.notebook.set_visible (true);
+            this.add_tab (file);
         });
 
         this.dialog_service.delete_image_signal.connect (() => {
@@ -61,14 +61,16 @@ public class Pikture.Window : Adw.ApplicationWindow {
         });
     }
 
-    private void new_tab (GLib.File file) {
-        var tab = new Viewer ();
-        tab.set_displayed_image (file.get_path ());
-        this.sidebar.set_file_details (file);
+    private void add_tab (GLib.File file) {
+        var viewer = new Viewer ();
+        viewer.set_displayed_image (file.get_path ());
+        var tab = new Tab (viewer.get_current_filename ());
+        this.notebook.append_page (viewer, tab);
+        this.notebook.set_tab_detachable (tab, true);
 
-        var page = this.tab_view.add_page (tab, null);
-        page.title = file.get_basename ();
-        this.tab_view.set_selected_page (page);
+        tab.close_tab_signal.connect (() => {
+            this.notebook.detach_tab (viewer);
+        });
     }
 
     [GtkCallback]

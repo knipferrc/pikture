@@ -80,17 +80,8 @@
               <object class="PiktureSidebar" id="sidebar" />
             </property>
             <property name="content">
-              <object class="AdwTabView" id="tab_view">
-                <property name="shortcuts">none</property>
-                <child>
-                  <object class="AdwTabBar" id="tab_bar">
-                    <property name="halign">fill</property>
-                    <property name="valign">start</property>
-                    <property name="hexpand">true</property>
-                    <property name="autohide">true</property>
-                    <property name="can-focus">false</property>
-                  </object>
-                </child>
+              <object class="GtkNotebook" id="notebook">
+                <property name="visible">false</property>
               </object>
             </property>
             <property name="separator">

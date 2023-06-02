@@ -4,5 +4,6 @@
     <file>viewer.ui</file>
     <file>window.ui</file>
     <file>sidebar.ui</file>
+    <file>tab.ui</file>
   </gresource>
 </gresources>

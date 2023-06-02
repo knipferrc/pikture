@@ -3,4 +3,5 @@ sources += files(
   'Viewer.vala',
   'About.vala',
   'Sidebar.vala',
+  'Tab.vala',
 )

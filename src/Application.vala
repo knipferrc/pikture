@@ -34,7 +34,7 @@ public class Pikture.App : Adw.Application {
             this.window = new Window (this);
         }
 
-        this.window.open (files[0]);
+        this.window.open (files);
         this.window.present ();
         this.bind_settings ();
     }
