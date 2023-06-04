@@ -6,7 +6,6 @@ public class Pikture.Tab : Adw.Bin {
     public signal void close_tab_signal();
 
     public Tab(string label) {
-        print(label);
         Object(
                label: label
         );

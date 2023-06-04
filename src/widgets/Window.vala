@@ -9,7 +9,7 @@ public class Pikture.Window : Adw.ApplicationWindow {
     [GtkChild] private unowned Gtk.Notebook notebook;
 
     private DialogService dialog_service;
-    private Viewer viewer;
+    private Viewport active_viewport;
 
     public Window (Adw.Application app) {
         Object (
@@ -19,7 +19,6 @@ public class Pikture.Window : Adw.ApplicationWindow {
 
     construct {
         this.dialog_service = new DialogService (this);
-        this.viewer = new Viewer ();
         this.connect_signals ();
     }
 
@@ -30,8 +29,12 @@ public class Pikture.Window : Adw.ApplicationWindow {
     }
 
     private void connect_signals () {
-        this.viewer.notify["filename"].connect (() => {
-            if (viewer.filename != "") {
+        this.notebook.page_added.connect ((widget) => {
+            this.active_viewport = widget as Viewport;
+        });
+
+        this.active_viewport.notify["filename"].connect (() => {
+            if (this.active_viewport.filename != "") {
                 this.adw_flap.set_reveal_flap (true);
                 this.delete_image_button.set_visible (true);
                 this.rotate_clockwise_button.set_visible (true);
@@ -52,24 +55,24 @@ public class Pikture.Window : Adw.ApplicationWindow {
         });
 
         this.dialog_service.delete_image_signal.connect (() => {
-            this.viewer.delete_picture ();
+            this.active_viewport.delete_picture ();
             this.sidebar.reset_details ();
         });
 
         this.dialog_service.file_save_signal.connect ((file) => {
-            this.viewer.save_picture (file.get_path (), file.get_basename ());
+            this.active_viewport.save_picture (file.get_path (), file.get_basename ());
         });
     }
 
     private void add_tab (GLib.File file) {
-        var viewer = new Viewer ();
-        viewer.set_displayed_image (file.get_path ());
-        var tab = new Tab (viewer.get_current_filename ());
-        this.notebook.append_page (viewer, tab);
-        this.notebook.set_tab_detachable (tab, true);
+        var viewport = new Viewport ();
+        viewport.set_displayed_image (file.get_path ());
+
+        var tab = new Tab (viewport.get_current_filename ());
+        this.notebook.append_page (viewport, tab);
 
         tab.close_tab_signal.connect (() => {
-            this.notebook.detach_tab (viewer);
+            this.notebook.detach_tab (viewport);
         });
     }
 
@@ -80,7 +83,7 @@ public class Pikture.Window : Adw.ApplicationWindow {
 
     [GtkCallback]
     private void on_delete_clicked () {
-        this.dialog_service.open_delete_image_dialog (this.viewer.get_current_filename ());
+        this.dialog_service.open_delete_image_dialog (this.active_viewport.get_current_filename ());
     }
 
     [GtkCallback]
@@ -90,12 +93,12 @@ public class Pikture.Window : Adw.ApplicationWindow {
 
     [GtkCallback]
     private void on_clockwise_clicked () {
-        this.viewer.rotate_picture (Gdk.PixbufRotation.CLOCKWISE);
+        this.active_viewport.rotate_picture (Gdk.PixbufRotation.CLOCKWISE);
     }
 
     [GtkCallback]
     private void on_counter_clockwise_clicked () {
-        this.viewer.rotate_picture (Gdk.PixbufRotation.COUNTERCLOCKWISE);
+        this.active_viewport.rotate_picture (Gdk.PixbufRotation.COUNTERCLOCKWISE);
     }
 
     [GtkCallback]

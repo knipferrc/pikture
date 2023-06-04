@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/github/mistakenelf/pikture">
-    <file>viewer.ui</file>
+    <file>viewport.ui</file>
     <file>window.ui</file>
     <file>sidebar.ui</file>
     <file>tab.ui</file>

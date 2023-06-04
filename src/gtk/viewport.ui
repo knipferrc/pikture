@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="PiktureViewer" parent="AdwBin">
+  <template class="PiktureViewport" parent="AdwBin">
     <child>
       <object class="GtkPicture" id="picture" />
     </child>
