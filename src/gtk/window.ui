@@ -37,9 +37,10 @@
               </object>
             </child>
             <child type="start">
-              <object class="GtkToggleButton">
+              <object class="GtkToggleButton" id="flap_toggle">
                 <signal name="clicked" handler="on_flap_toggled" />
                 <property name="icon-name">sidebar-show-right-symbolic</property>
+                <property name="sensitive">false</property>
               </object>
             </child>
             <child type="start">

@@ -43,6 +43,10 @@ public class Pikture.Viewport : Adw.Bin {
         return this.picture.get_file ().get_basename ();
     }
 
+    public GLib.File get_current_file () {
+        return this.picture.get_file ();
+    }
+
     public void save_picture (string filepath, string basename) {
         var final_path = this.has_extension (basename) ? filepath : filepath + ".png";
 
