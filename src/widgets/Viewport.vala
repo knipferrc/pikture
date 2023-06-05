@@ -1,5 +1,5 @@
-[GtkTemplate (ui = "/com/github/mistakenelf/pikture/viewer.ui")]
-public class Pikture.Viewer : Adw.Bin {
+[GtkTemplate (ui = "/com/github/mistakenelf/pikture/viewport.ui")]
+public class Pikture.Viewport : Adw.Bin {
     [GtkChild] private unowned Gtk.Picture picture;
 
     private Gdk.Pixbuf pixbuf;
@@ -41,6 +41,10 @@ public class Pikture.Viewer : Adw.Bin {
 
     public string get_current_filename () {
         return this.picture.get_file ().get_basename ();
+    }
+
+    public GLib.File get_current_file () {
+        return this.picture.get_file ();
     }
 
     public void save_picture (string filepath, string basename) {

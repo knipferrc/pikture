@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="PiktureTab" parent="AdwBin">
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">horizontal</property>
+        <child type="start">
+          <object class="GtkLabel" id="tab_label" />
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="close_tab">
+            <signal name="clicked" handler="close_tab_clicked" />
+            <property name="has-frame">false</property>
+            <property name="icon-name">window-close-symbolic</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

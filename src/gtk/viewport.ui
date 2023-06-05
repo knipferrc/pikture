@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="PiktureViewport" parent="AdwBin">
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="margin-start">15</property>
+        <property name="margin-end">15</property>
+        <property name="margin-top">15</property>
+        <property name="margin-bottom">15</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="hexpand">true</property>
+        <property name="vexpand">true</property>
+        <child>
+          <object class="GtkPicture" id="picture" />
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

@@ -13,7 +13,7 @@
       </item>
     </section>
   </menu>
-  <template class="PiktureMainWindow" parent="AdwApplicationWindow">
+  <template class="PiktureWindow" parent="AdwApplicationWindow">
     <property name="title" translatable="yes">Pikture</property>
     <child>
       <object class="GtkBox" id="layout_box">
@@ -37,9 +37,10 @@
               </object>
             </child>
             <child type="start">
-              <object class="GtkToggleButton">
+              <object class="GtkToggleButton" id="flap_toggle">
                 <signal name="clicked" handler="on_flap_toggled" />
                 <property name="icon-name">sidebar-show-right-symbolic</property>
+                <property name="sensitive">false</property>
               </object>
             </child>
             <child type="start">
@@ -80,7 +81,9 @@
               <object class="PiktureSidebar" id="sidebar" />
             </property>
             <property name="content">
-              <object class="PiktureViewer" id="viewer" />
+              <object class="GtkNotebook" id="notebook">
+                <property name="visible">false</property>
+              </object>
             </property>
             <property name="separator">
               <object class="GtkSeparator" />
