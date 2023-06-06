@@ -1,16 +1,20 @@
 src/Application.vala
-src/MainWindow.vala
 src/main.vala
 
-src/widgets/Viewer.vala
 src/widgets/About.vala
+src/widgets/Header.vala
 src/widgets/Sidebar.vala
+src/widgets/Tab.vala
+src/widgets/Viewport.vala
+src/widgets/Window.vala
 
-src/services/Dialog.vala
+src/services/DialogService.vala
 
 data/pikture.desktop.in
 data/pikture.metainfo.xml.in
 
-src/gtk/main_window.ui
+src/gtk/header.ui
 src/gtk/sidebar.ui
-src/gtk/viewer.ui
+src/gtk/tab.ui
+src/gtk/viewport.ui
+src/gtk/window.ui

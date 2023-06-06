@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mistakenelf.pikture\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-16 19:24-0400\n"
+"POT-Creation-Date: 2023-06-06 12:30-0400\n"
 "PO-Revision-Date: 2023-05-12 20:30-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -21,12 +21,28 @@ msgstr ""
 msgid "translator_credits"
 msgstr ""
 
-#: src/services/Dialog.vala:14
+#: src/widgets/Sidebar.vala:23 src/widgets/Sidebar.vala:24
+msgid "Pixels"
+msgstr ""
+
+#: src/services/DialogService.vala:16
 msgid "Select a file"
 msgstr "Seleccione un archivo"
 
-#: data/pikture.desktop.in:5 data/pikture.metainfo.xml.in:4
-#: src/gtk/main_window.ui:17
+#: src/services/DialogService.vala:32
+msgid "Cancel"
+msgstr ""
+
+#: src/services/DialogService.vala:33
+msgid "Delete"
+msgstr "Borrar"
+
+#: src/services/DialogService.vala:49
+#, fuzzy
+msgid "Save file"
+msgstr "Seleccione un archivo"
+
+#: data/pikture.desktop.in:5 data/pikture.metainfo.xml.in:4 src/gtk/window.ui:5
 msgid "Pikture"
 msgstr "Pikture"
 
@@ -35,30 +51,37 @@ msgstr "Pikture"
 msgid "A simple image viewer"
 msgstr "Un visor de imagenes sencillo"
 
-#: src/gtk/main_window.ui:7
+#: src/gtk/header.ui:6
 msgid "About"
 msgstr "Acerca de"
 
-#: src/gtk/main_window.ui:11
+#: src/gtk/header.ui:10
 msgid "Quit"
 msgstr "Abandonar"
 
-#: src/gtk/sidebar.ui:20
-msgid "Open"
-msgstr "Abierto"
-
-#: src/gtk/sidebar.ui:32
-msgid "Delete"
-msgstr "Borrar"
-
-#: src/gtk/sidebar.ui:47
+#: src/gtk/sidebar.ui:23
 msgid "File Name"
 msgstr "Nombre del archivo"
 
-#: src/gtk/sidebar.ui:53
+#: src/gtk/sidebar.ui:29
 msgid "File Size"
 msgstr "Tamano del archivo"
 
-#: src/gtk/sidebar.ui:59
+#: src/gtk/sidebar.ui:35
 msgid "Date Modified"
 msgstr "Fecha modificada"
+
+#: src/gtk/sidebar.ui:41
+msgid "Width"
+msgstr ""
+
+#: src/gtk/sidebar.ui:47
+msgid "Height"
+msgstr ""
+
+#: src/gtk/sidebar.ui:53
+msgid "Image Type"
+msgstr ""
+
+#~ msgid "Open"
+#~ msgstr "Abierto"

@@ -20,8 +20,8 @@ public class Pikture.Sidebar : Adw.Bin {
             this.file_name.set_subtitle(info.get_name());
             this.file_size.set_subtitle(GLib.format_size(info.get_size()));
             this.date_modified.set_subtitle(info.get_modification_date_time().format("%m/%d/%y %H:%M"));
-            this.width.set_subtitle("%d %s".printf(pixbuf.width, "Pixels"));
-            this.height.set_subtitle("%d %s".printf(pixbuf.height, "Pixels"));
+            this.width.set_subtitle("%d %s".printf(pixbuf.width, _("Pixels")));
+            this.height.set_subtitle("%d %s".printf(pixbuf.height, _("Pixels")));
 
             var image_description = GLib.ContentType.get_description(info.get_content_type());
             this.image_type.set_subtitle(image_description);

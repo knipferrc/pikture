@@ -29,8 +29,8 @@ public class Pikture.DialogService : GLib.Object {
 
     public void open_delete_image_dialog(string filename) {
         var alert = new Adw.MessageDialog(this.window, "Are you sure?", "%s will be deleted".printf(filename));
-        alert.add_response("cancel", "Cancel");
-        alert.add_response("delete", "Delete");
+        alert.add_response("cancel", _("Cancel"));
+        alert.add_response("delete", _("Delete"));
         alert.set_response_appearance("delete", Adw.ResponseAppearance.DESTRUCTIVE);
         alert.set_default_response("cancel");
         alert.set_close_response("cancel");

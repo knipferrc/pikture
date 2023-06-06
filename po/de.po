@@ -2,12 +2,28 @@
 msgid "translator_credits"
 msgstr ""
 
-#: src/services/Dialog.vala:14
+#: src/widgets/Sidebar.vala:23 src/widgets/Sidebar.vala:24
+msgid "Pixels"
+msgstr ""
+
+#: src/services/DialogService.vala:16
 msgid "Select a file"
 msgstr "Whlen Sie eine Datei aus"
 
-#: data/pikture.desktop.in:5 data/pikture.metainfo.xml.in:4
-#: src/gtk/main_window.ui:17
+#: src/services/DialogService.vala:32
+msgid "Cancel"
+msgstr ""
+
+#: src/services/DialogService.vala:33
+msgid "Delete"
+msgstr "Lschen"
+
+#: src/services/DialogService.vala:49
+#, fuzzy
+msgid "Save file"
+msgstr "Whlen Sie eine Datei aus"
+
+#: data/pikture.desktop.in:5 data/pikture.metainfo.xml.in:4 src/gtk/window.ui:5
 msgid "Pikture"
 msgstr "Pikture"
 
@@ -16,34 +32,41 @@ msgstr "Pikture"
 msgid "A simple image viewer"
 msgstr "Ein einfacher Bildbetrachter"
 
-#: src/gtk/main_window.ui:7
+#: src/gtk/header.ui:6
 msgid "About"
 msgstr "Um"
 
-#: src/gtk/main_window.ui:11
+#: src/gtk/header.ui:10
 msgid "Quit"
 msgstr "Aufhren"
 
-#: src/gtk/sidebar.ui:20
-#, fuzzy
-msgid "Open"
-msgstr "Offen"
-
-#: src/gtk/sidebar.ui:32
-msgid "Delete"
-msgstr "Lschen"
-
-#: src/gtk/sidebar.ui:47
+#: src/gtk/sidebar.ui:23
 msgid "File Name"
 msgstr "Dateinamen"
 
-#: src/gtk/sidebar.ui:53
+#: src/gtk/sidebar.ui:29
 msgid "File Size"
 msgstr "Dateigre"
 
-#: src/gtk/sidebar.ui:59
+#: src/gtk/sidebar.ui:35
 msgid "Date Modified"
 msgstr "Datum gendert"
+
+#: src/gtk/sidebar.ui:41
+msgid "Width"
+msgstr ""
+
+#: src/gtk/sidebar.ui:47
+msgid "Height"
+msgstr ""
+
+#: src/gtk/sidebar.ui:53
+msgid "Image Type"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Open"
+#~ msgstr "Offen"
 
 #, fuzzy
 #~ msgid "A simple gtk4 libadwaita image viewer"
