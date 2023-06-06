@@ -1,7 +1,7 @@
 [GtkTemplate (ui = "/com/github/mistakenelf/pikture/window.ui")]
 public class Pikture.Window : Adw.ApplicationWindow {
     [GtkChild] private unowned Header header;
-    [GtkChild] private unowned Adw.Flap adw_flap;
+    [GtkChild] private unowned Adw.Flap flap;
     [GtkChild] private unowned Sidebar sidebar;
     [GtkChild] private unowned Gtk.Notebook notebook;
 
@@ -34,7 +34,7 @@ public class Pikture.Window : Adw.ApplicationWindow {
         this.notebook.page_removed.connect (() => {
             if (this.notebook.get_n_pages () == 0) {
                 this.notebook.set_visible (false);
-                this.adw_flap.set_reveal_flap (false);
+                this.flap.set_reveal_flap (false);
                 this.sidebar.reset_details ();
                 this.header.hide_action_buttons ();
             }
@@ -56,7 +56,7 @@ public class Pikture.Window : Adw.ApplicationWindow {
         });
 
         this.header.flap_toggled_signal.connect (() => {
-            this.adw_flap.set_reveal_flap (!this.adw_flap.get_reveal_flap ());
+            this.flap.set_reveal_flap (!this.flap.get_reveal_flap ());
         });
 
         this.header.rotate_clockwise_signal.connect (() => {
@@ -91,7 +91,7 @@ public class Pikture.Window : Adw.ApplicationWindow {
         viewport.set_displayed_picture (file.get_path ());
 
         this.sidebar.set_file_details (file);
-        this.adw_flap.set_reveal_flap (true);
+        this.flap.set_reveal_flap (true);
         this.header.show_action_buttons ();
 
         var tab = new Tab (viewport.get_current_file ().get_basename ());

@@ -10,7 +10,7 @@
           <object class="PiktureHeader" id="header" />
         </child>
         <child>
-          <object class="AdwFlap" id="adw_flap">
+          <object class="AdwFlap" id="flap">
             <property name="flap">
               <object class="PiktureSidebar" id="sidebar" />
             </property>
