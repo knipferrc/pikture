@@ -1,13 +1,9 @@
 [GtkTemplate (ui = "/com/github/mistakenelf/pikture/window.ui")]
 public class Pikture.Window : Adw.ApplicationWindow {
+    [GtkChild] private unowned Header header;
     [GtkChild] private unowned Adw.Flap adw_flap;
     [GtkChild] private unowned Sidebar sidebar;
-    [GtkChild] private unowned Gtk.Button delete_image_button;
-    [GtkChild] private unowned Gtk.Button rotate_counterclockwise_button;
-    [GtkChild] private unowned Gtk.Button rotate_clockwise_button;
-    [GtkChild] private unowned Gtk.Button save_button;
     [GtkChild] private unowned Gtk.Notebook notebook;
-    [GtkChild] private unowned Gtk.ToggleButton flap_toggle;
 
     private DialogService dialog_service;
     private Viewport active_viewport;
@@ -39,12 +35,8 @@ public class Pikture.Window : Adw.ApplicationWindow {
             if (this.notebook.get_n_pages () == 0) {
                 this.notebook.set_visible (false);
                 this.adw_flap.set_reveal_flap (false);
-                this.delete_image_button.set_visible (false);
-                this.rotate_clockwise_button.set_visible (false);
-                this.rotate_counterclockwise_button.set_visible (false);
-                this.save_button.set_visible (false);
-                this.flap_toggle.set_sensitive (false);
                 this.sidebar.reset_details ();
+                this.header.hide_action_buttons ();
             }
         });
 
@@ -53,6 +45,30 @@ public class Pikture.Window : Adw.ApplicationWindow {
                 this.active_viewport = widget as Viewport;
                 this.sidebar.set_file_details (this.active_viewport.get_current_file ());
             }
+        });
+
+        this.header.open_file_signal.connect (() => {
+            this.dialog_service.open_file_dialog.begin ();
+        });
+
+        this.header.delete_file_signal.connect (() => {
+            this.dialog_service.open_delete_image_dialog (this.active_viewport.get_current_file ().get_basename ());
+        });
+
+        this.header.flap_toggled_signal.connect (() => {
+            this.adw_flap.set_reveal_flap (!this.adw_flap.get_reveal_flap ());
+        });
+
+        this.header.rotate_clockwise_signal.connect (() => {
+            this.active_viewport.rotate_picture (Gdk.PixbufRotation.CLOCKWISE);
+        });
+
+        this.header.rotate_counter_clockwise_signal.connect (() => {
+            this.active_viewport.rotate_picture (Gdk.PixbufRotation.COUNTERCLOCKWISE);
+        });
+
+        this.header.save_file_signal.connect (() => {
+            this.dialog_service.save_file_dialog.begin ();
         });
 
         this.dialog_service.file_opened_signal.connect ((file) => {
@@ -76,11 +92,7 @@ public class Pikture.Window : Adw.ApplicationWindow {
 
         this.sidebar.set_file_details (file);
         this.adw_flap.set_reveal_flap (true);
-        this.delete_image_button.set_visible (true);
-        this.rotate_clockwise_button.set_visible (true);
-        this.rotate_counterclockwise_button.set_visible (true);
-        this.save_button.set_visible (true);
-        this.flap_toggle.set_sensitive (true);
+        this.header.show_action_buttons ();
 
         var tab = new Tab (viewport.get_current_file ().get_basename ());
         this.notebook.append_page (viewport, tab);
@@ -88,35 +100,5 @@ public class Pikture.Window : Adw.ApplicationWindow {
         tab.close_tab_signal.connect (() => {
             this.notebook.detach_tab (viewport);
         });
-    }
-
-    [GtkCallback]
-    private async void on_open_clicked () {
-        this.dialog_service.open_file_dialog.begin ();
-    }
-
-    [GtkCallback]
-    private void on_delete_clicked () {
-        this.dialog_service.open_delete_image_dialog (this.active_viewport.get_current_file ().get_basename ());
-    }
-
-    [GtkCallback]
-    private void on_flap_toggled () {
-        this.adw_flap.set_reveal_flap (!this.adw_flap.get_reveal_flap ());
-    }
-
-    [GtkCallback]
-    private void on_clockwise_clicked () {
-        this.active_viewport.rotate_picture (Gdk.PixbufRotation.CLOCKWISE);
-    }
-
-    [GtkCallback]
-    private void on_counter_clockwise_clicked () {
-        this.active_viewport.rotate_picture (Gdk.PixbufRotation.COUNTERCLOCKWISE);
-    }
-
-    [GtkCallback]
-    private void on_save_clicked () {
-        this.dialog_service.save_file_dialog.begin ();
     }
 }

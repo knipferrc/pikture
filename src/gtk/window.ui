@@ -1,79 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk" version="4.10" />
-  <menu id="action-menu">
-    <section>
-      <item>
-        <attribute name="label" translatable="yes">About</attribute>
-        <attribute name="action">app.about</attribute>
-      </item>
-      <item>
-        <attribute name="label" translatable="yes">Quit</attribute>
-        <attribute name="action">app.quit</attribute>
-      </item>
-    </section>
-  </menu>
   <template class="PiktureWindow" parent="AdwApplicationWindow">
     <property name="title" translatable="yes">Pikture</property>
     <child>
       <object class="GtkBox" id="layout_box">
         <property name="orientation">vertical</property>
         <child>
-          <object class="AdwHeaderBar" id="header">
-            <child type="end">
-              <object class="GtkMenuButton">
-                <property name="menu-model">action-menu</property>
-                <property name="icon-name">open-menu-symbolic</property>
-              </object>
-            </child>
-            <child type="end">
-              <object class="GtkButton" id="delete_image_button">
-                <signal name="clicked" handler="on_delete_clicked" />
-                <property name="visible">false</property>
-                <property name="icon-name">user-trash-symbolic</property>
-                <style>
-                  <class name="destructive-action" />
-                </style>
-              </object>
-            </child>
-            <child type="start">
-              <object class="GtkToggleButton" id="flap_toggle">
-                <signal name="clicked" handler="on_flap_toggled" />
-                <property name="icon-name">sidebar-show-right-symbolic</property>
-                <property name="sensitive">false</property>
-              </object>
-            </child>
-            <child type="start">
-              <object class="GtkButton">
-                <signal name="clicked" handler="on_open_clicked" />
-                <property name="icon-name">document-open-symbolic</property>
-              </object>
-            </child>
-            <child type="start">
-              <object class="GtkButton" id="save_button">
-                <signal name="clicked" handler="on_save_clicked" />
-                <property name="has-frame">false</property>
-                <property name="visible">false</property>
-                <property name="icon-name">document-save-symbolic</property>
-              </object>
-            </child>
-            <child type="start">
-              <object class="GtkButton" id="rotate_counterclockwise_button">
-                <signal name="clicked" handler="on_counter_clockwise_clicked" />
-                <property name="has-frame">false</property>
-                <property name="visible">false</property>
-                <property name="icon-name">object-rotate-left-symbolic</property>
-              </object>
-            </child>
-            <child type="start">
-              <object class="GtkButton" id="rotate_clockwise_button">
-                <signal name="clicked" handler="on_clockwise_clicked" />
-                <property name="has-frame">false</property>
-                <property name="visible">false</property>
-                <property name="icon-name">object-rotate-right-symbolic</property>
-              </object>
-            </child>
-          </object>
+          <object class="PiktureHeader" id="header" />
         </child>
         <child>
           <object class="AdwFlap" id="adw_flap">
