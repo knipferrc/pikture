@@ -72,7 +72,7 @@ public class Pikture.Window : Adw.ApplicationWindow {
 
     private void add_tab (GLib.File file) {
         var viewport = new Viewport ();
-        viewport.set_displayed_image (file.get_path ());
+        viewport.set_displayed_picture (file.get_path ());
 
         this.sidebar.set_file_details (file);
         this.adw_flap.set_reveal_flap (true);
@@ -82,7 +82,7 @@ public class Pikture.Window : Adw.ApplicationWindow {
         this.save_button.set_visible (true);
         this.flap_toggle.set_sensitive (true);
 
-        var tab = new Tab (viewport.get_current_filename ());
+        var tab = new Tab (viewport.get_current_file ().get_basename ());
         this.notebook.append_page (viewport, tab);
 
         tab.close_tab_signal.connect (() => {
@@ -97,7 +97,7 @@ public class Pikture.Window : Adw.ApplicationWindow {
 
     [GtkCallback]
     private void on_delete_clicked () {
-        this.dialog_service.open_delete_image_dialog (this.active_viewport.get_current_filename ());
+        this.dialog_service.open_delete_image_dialog (this.active_viewport.get_current_file ().get_basename ());
     }
 
     [GtkCallback]

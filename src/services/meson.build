@@ -1,3 +1,3 @@
 sources += files(
-  'Dialog.vala',
+  'DialogService.vala',
 )

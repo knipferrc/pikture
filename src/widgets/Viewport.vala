@@ -6,7 +6,7 @@ public class Pikture.Viewport : Adw.Bin {
 
     public string filename { get; set; }
 
-    public void set_displayed_image (string filename) {
+    public void set_displayed_picture (string filename) {
         this.filename = filename;
         this.picture.set_filename (this.filename);
 
@@ -37,10 +37,6 @@ public class Pikture.Viewport : Adw.Bin {
         } catch (Error error) {
             stderr.printf (error.message);
         }
-    }
-
-    public string get_current_filename () {
-        return this.picture.get_file ().get_basename ();
     }
 
     public GLib.File get_current_file () {
