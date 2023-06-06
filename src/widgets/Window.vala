@@ -4,6 +4,7 @@ public class Pikture.Window : Adw.ApplicationWindow {
     [GtkChild] private unowned Adw.Flap flap;
     [GtkChild] private unowned Sidebar sidebar;
     [GtkChild] private unowned Gtk.Notebook notebook;
+    [GtkChild] private unowned Adw.ToastOverlay toast_overlay;
 
     private DialogService dialog_service;
     private Viewport active_viewport;
@@ -77,8 +78,11 @@ public class Pikture.Window : Adw.ApplicationWindow {
         });
 
         this.dialog_service.delete_image_signal.connect (() => {
+            var toast = new Adw.Toast ("%s has been deleted".printf (this.active_viewport.get_current_file ().get_basename ()));
+            this.toast_overlay.add_toast (toast);
             this.active_viewport.delete_picture ();
             this.sidebar.reset_details ();
+            this.notebook.remove_page (this.notebook.get_current_page ());
         });
 
         this.dialog_service.file_save_signal.connect ((file) => {

@@ -4,5 +4,5 @@ sources += files(
   'About.vala',
   'Sidebar.vala',
   'Tab.vala',
-  'Header.vala'
+  'Header.vala',
 )
