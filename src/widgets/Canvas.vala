@@ -1,5 +1,5 @@
-[GtkTemplate (ui = "/com/github/mistakenelf/pikture/viewport.ui")]
-public class Pikture.Viewport : Adw.Bin {
+[GtkTemplate (ui = "/com/github/mistakenelf/pikture/canvas.ui")]
+public class Pikture.Canvas : Adw.Bin {
     [GtkChild] private unowned Gtk.Picture picture;
 
     private Gdk.Pixbuf pixbuf;

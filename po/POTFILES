@@ -5,7 +5,7 @@ src/widgets/About.vala
 src/widgets/Header.vala
 src/widgets/Sidebar.vala
 src/widgets/Tab.vala
-src/widgets/Viewport.vala
+src/widgets/Canvas.vala
 src/widgets/Window.vala
 
 src/services/DialogService.vala
@@ -16,5 +16,5 @@ data/pikture.metainfo.xml.in
 src/gtk/header.ui
 src/gtk/sidebar.ui
 src/gtk/tab.ui
-src/gtk/viewport.ui
+src/gtk/canvas.ui
 src/gtk/window.ui

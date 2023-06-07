@@ -1,6 +1,6 @@
 sources += files(
   'Window.vala',
-  'Viewport.vala',
+  'Canvas.vala',
   'About.vala',
   'Sidebar.vala',
   'Tab.vala',
