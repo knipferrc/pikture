@@ -1,6 +1,6 @@
 project('com.github.mistakenelf.pikture',
   ['c', 'vala'],
-  version: '0.0.1',
+  version: '1.0.0',
   license: 'MIT'
 )
 
