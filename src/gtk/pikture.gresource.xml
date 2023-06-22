@@ -4,7 +4,6 @@
     <file>canvas.ui</file>
     <file>window.ui</file>
     <file>sidebar.ui</file>
-    <file>tab.ui</file>
     <file>header.ui</file>
   </gresource>
 </gresources>
