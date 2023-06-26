@@ -5,6 +5,7 @@ public class Pikture.Header : Adw.Bin {
     [GtkChild] private unowned Gtk.Button rotate_clockwise_button;
     [GtkChild] private unowned Gtk.Button save_button;
     [GtkChild] private unowned Gtk.ToggleButton flap_toggle;
+    [GtkChild] private unowned Adw.TabButton tab_button;
 
     public signal void open_file_signal ();
     public signal void delete_file_signal ();
@@ -27,6 +28,10 @@ public class Pikture.Header : Adw.Bin {
         this.rotate_counterclockwise_button.set_visible (true);
         this.save_button.set_visible (true);
         this.flap_toggle.set_sensitive (true);
+    }
+
+    public void set_tab_buttton_view (Adw.TabView view) {
+        this.tab_button.view = view;
     }
 
     [GtkCallback]

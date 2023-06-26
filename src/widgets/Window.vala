@@ -18,6 +18,7 @@ public class Pikture.Window : Adw.ApplicationWindow {
 
     construct {
         this.dialog_service = new DialogService (this);
+        this.header.set_tab_buttton_view (this.view);
         this.connect_signals ();
     }
 

@@ -8,7 +8,7 @@
         <child>
           <object class="AdwTabOverview">
             <property name="view">view</property>
-            <property name="enable-new-tab">True</property>
+            <property name="enable-new-tab">false</property>
             <property name="child">
               <object class="GtkBox">
                 <property name="orientation">vertical</property>

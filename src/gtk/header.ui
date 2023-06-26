@@ -68,6 +68,11 @@
             <property name="icon-name">object-rotate-right-symbolic</property>
           </object>
         </child>
+        <child type="start">
+          <object class="AdwTabButton" id="tab_button">
+            <property name="action-name">overview.open</property>
+          </object>
+        </child>
       </object>
     </child>
   </template>
