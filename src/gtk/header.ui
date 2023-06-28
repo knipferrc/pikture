@@ -71,6 +71,7 @@
         <child type="start">
           <object class="AdwTabButton" id="tab_button">
             <property name="action-name">overview.open</property>
+            <property name="visible">false</property>
           </object>
         </child>
       </object>

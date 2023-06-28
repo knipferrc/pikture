@@ -20,6 +20,7 @@ public class Pikture.Header : Adw.Bin {
         this.rotate_counterclockwise_button.set_visible (false);
         this.save_button.set_visible (false);
         this.flap_toggle.set_sensitive (false);
+        this.tab_button.set_visible (false);
     }
 
     public void show_action_buttons () {
@@ -28,6 +29,7 @@ public class Pikture.Header : Adw.Bin {
         this.rotate_counterclockwise_button.set_visible (true);
         this.save_button.set_visible (true);
         this.flap_toggle.set_sensitive (true);
+        this.tab_button.set_visible (true);
     }
 
     public void set_tab_buttton_view (Adw.TabView view) {
